@@ -1,6 +1,7 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
-import { UiLoader } from '../../ui/ui-loader';
+import { Spiner } from '@/components/Loader/Loader';
+
 import { useAuth } from '../data-access';
 
 export function AuthRoute({ redirectTo }: { redirectTo: string }) {
@@ -8,7 +9,7 @@ export function AuthRoute({ redirectTo }: { redirectTo: string }) {
   const location = useLocation();
 
   if (loading) {
-    return <UiLoader />;
+    return <Spiner />;
   }
 
   return user ? <Outlet /> : <Navigate replace to={redirectTo} state={{ from: location }} />;

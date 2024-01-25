@@ -6,3 +6,8 @@ export type StateAuth = {
   status: Status;
   captchaFetch: ConfirmationResult;
 };
+
+export type User = {
+  phoneNumber: string;
+  verificationId: string;
+};
