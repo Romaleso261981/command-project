@@ -7,6 +7,7 @@ import type { StateAuth } from '@/shared/types/Types';
 
 import { auth } from '../../integations/firebase';
 
+
 const setupRecaptcha = (phoneNumber: string) => {
   const recapthca = new RecaptchaVerifier(auth, 'sign-in-button', {
     size: 'invisible'
