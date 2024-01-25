@@ -2,7 +2,7 @@ import { collection, getDocs, limit, query } from 'firebase/firestore';
 
 import { db } from '@/integations/firebase';
 
-import type { User } from '../types/Types';
+import type { User } from '../../types/Types';
 
 type DatabasePaths = string;
 
