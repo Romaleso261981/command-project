@@ -6,15 +6,11 @@ import { AuthUiForm } from './ui/auth-ui-form';
 
 export default function AuthPage() {
   return (
-    <>
+    <Container>
       <Header />
-      <Container>
-        <Flex h="100%" align="center" pt={100}>
-          <Container size="xs">
-            <AuthUiForm />
-          </Container>
-        </Flex>
-      </Container>
-    </>
+      <Flex h="100%">
+        <AuthUiForm />
+      </Flex>
+    </Container>
   );
 }
