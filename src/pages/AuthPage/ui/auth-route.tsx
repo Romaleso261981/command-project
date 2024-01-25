@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
-import { Spiner } from '@/components/Loader/Loader';
+import { Spiner } from '@/shared/components/Loader/Loader';
 
 import { useAuth } from '../data-access';
 
