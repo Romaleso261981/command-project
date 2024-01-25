@@ -6,10 +6,11 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
+import { signIn } from '@/redux/slices/authSlice';
+import { setPhoneNumber } from '@/redux/slices/userSlice';
+import { useAppDispatch } from '@/redux/store';
+
 import iconSteam from '../../../public/steam.svg';
-import { signIn } from '../../redux/slices/authSlice';
-import { setPhoneNumber } from '../../redux/slices/userSlice';
-import { useAppDispatch } from '../../redux/store';
 import classes from './LoginForm.module.css';
 
 const LoginForm: FC = () => {
