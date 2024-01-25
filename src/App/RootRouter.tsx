@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 
 import { Spiner } from '@/shared/components/Loader/Loader';
 
-// import { AuthRoute } from './auth-route';
 import { Layout } from './layout';
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
