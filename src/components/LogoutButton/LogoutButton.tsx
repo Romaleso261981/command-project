@@ -4,8 +4,8 @@ import type { FC } from 'react';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import logout from '../../../public/logout.svg';
-import { auth } from '../../firebase';
+import logout from '@/access/logout.svg';
+import { auth } from '@/firebase';
 
 const LogoutButton: FC = () => {
   const navigate = useNavigate();
