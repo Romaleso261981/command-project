@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import logout from '@/access/logout.svg';
 import { auth } from '@/integations/firebase';
 
-
 const LogoutButton: FC = () => {
   const navigate = useNavigate();
 
