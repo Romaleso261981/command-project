@@ -2,18 +2,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { ConfirmationResult } from 'firebase/auth';
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
 
-import { auth } from '../../firebase';
+import { Status } from '@/shared/types/enums';
+import type { StateAuth } from '@/shared/types/Types';
 
-export enum Status {
-  LOADING = 'loading',
-  SUCCES = 'succes',
-  ERROR = 'error'
-}
-
-type StateAuth = {
-  status: Status;
-  captchaFetch: ConfirmationResult;
-};
+import { auth } from '../../integations/firebase';
 
 const setupRecaptcha = (phoneNumber: string) => {
   const recapthca = new RecaptchaVerifier(auth, 'sign-in-button', {
