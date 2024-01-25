@@ -11,3 +11,8 @@ export type User = {
   phoneNumber: string;
   verificationId: string;
 };
+
+export type LanguagePickerProps = {
+  label: string;
+  image: string;
+};
