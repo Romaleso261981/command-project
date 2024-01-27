@@ -4,9 +4,10 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { getCaptcha } from '../../redux/selectors';
-import { setVerificationId } from '../../redux/slices/userSlice';
-import { useAppDispatch, useAppSelector } from '../../redux/store';
+import { getCaptcha } from '@/redux/selectors';
+import { setVerificationId } from '@/redux/slices/userSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/store';
+
 import classes from './CheckSmsCodeForm.module.css';
 
 const CheckSmsCodeForm: FC = () => {

@@ -1,8 +1,8 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { Spiner } from '../components/Loader/Loader';
-// import { AuthRoute } from './auth-route';
+import { Spiner } from '@/shared/components/Loader/Loader';
+
 import { Layout } from './layout';
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
@@ -15,15 +15,13 @@ export default function RootRouter() {
   return (
     <Suspense fallback={<Spiner />}>
       <Routes>
-        <Route index element={<MainPage />} />
-        <Route path="/login" element={<AuthPage />} />
-        {/*<Route element={<AuthRoute redirectTo="/login" />}> */}
         <Route element={<Layout />}>
+          <Route path="/login" element={<AuthPage />} />
           <Route path="admin" element={<AdminPage />} />
+          <Route index element={<MainPage />} />
           <Route path="admin/:id" element={<ProfilePage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
-        {/* </Route> */}
       </Routes>
     </Suspense>
   );
