@@ -8,8 +8,11 @@ export type StateAuth = {
 };
 
 export type User = {
-  phoneNumber: string;
-  verificationId: string;
+  nickName: string;
+  rule: string;
+  name: string;
+  id: string;
+  balance: string;
 };
 
 export type LanguagePickerProps = {

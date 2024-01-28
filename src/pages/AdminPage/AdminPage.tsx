@@ -9,7 +9,7 @@ export default function AdminPage() {
     <Flex pl={40} pt={50} direction="column">
       <FormAddClient userData={data} />
       <TableSelection />
-      <Center mt={20}>
+      <Center mt={20} mb={40}>
         <Button>Показать еще</Button>
       </Center>
     </Flex>
