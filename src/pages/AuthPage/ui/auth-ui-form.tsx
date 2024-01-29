@@ -12,7 +12,7 @@ import {
 } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { upperFirst, useToggle } from '@mantine/hooks';
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { useAuth } from '../data-access';
 import { GitHubButton, GoogleButton } from './social-buttons';
@@ -20,6 +20,9 @@ import { GitHubButton, GoogleButton } from './social-buttons';
 export function AuthUiForm(props: PaperProps) {
   const { login } = useAuth();
   const [type, toggle] = useToggle(['login', 'register']);
+
+  const { t } = useTranslation();
+
   const form = useForm({
     initialValues: {
       email: '',
@@ -61,7 +64,7 @@ export function AuthUiForm(props: PaperProps) {
 
           <TextInput
             required
-            label="Email"
+            label={t('auth.login')}
             placeholder="hello@mantine.dev"
             value={form.values.email}
             onChange={(event) => form.setFieldValue('email', event.currentTarget.value)}
@@ -96,9 +99,6 @@ export function AuthUiForm(props: PaperProps) {
             {type === 'register'
               ? 'Already have an account? Login'
               : "Don't have an account? Register"}
-          </Anchor>
-          <Anchor component={Link} to="/">
-            root page.
           </Anchor>
           <Button type="submit">{upperFirst(type)}</Button>
         </Group>

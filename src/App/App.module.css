@@ -1,0 +1,13 @@
+.header {
+  height: 100px;
+}
+.navbar {
+  width: 5%;
+  top: 98px;
+}
+
+.main {
+  padding-left: 60px;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
