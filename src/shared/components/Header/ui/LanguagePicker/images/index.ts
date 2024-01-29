@@ -3,6 +3,7 @@ import french from './french.png';
 import german from './german.png';
 import italian from './italian.png';
 import polish from './polish.png';
+import ru from './ru.jpg';
 import ukraine from './ukraine.png';
 import ukraine2 from './ukraine2.png';
 
@@ -13,5 +14,6 @@ export default {
   italian,
   polish,
   ukraine,
-  ukraine2
+  ukraine2,
+  ru
 };

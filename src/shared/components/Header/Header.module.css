@@ -1,0 +1,27 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: light-dark(rgb(250, 247, 247), rgba(0, 0, 0, 0.45)),
+  rgba(0, 0, 0, 0);
+  align-items: center;
+  height: 100px;
+  padding: 10px 20px;
+}
+
+/* .root::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  right: 0;
+  height: rem(6px);
+  background: linear-gradient(
+    light-dark(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.45)),
+    rgba(0, 0, 0, 0)
+  );
+  transition: opacity 0.2s;
+} */
+
+.scrolled::after {
+  opacity: 1;
+}
