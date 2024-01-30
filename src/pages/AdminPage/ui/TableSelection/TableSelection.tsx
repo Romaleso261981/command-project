@@ -1,12 +1,16 @@
-import { Avatar, Checkbox, Group, rem, ScrollArea, Table, Text } from '@mantine/core';
+import { ActionIcon, Avatar, Checkbox, Group, rem, ScrollArea, Table, Text } from '@mantine/core';
+import { IconFileCheck } from '@tabler/icons-react';
 import cx from 'clsx';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { data } from '../mocData';
 import classes from './TableSelection.module.css';
 
 export function TableSelection() {
   const [selection, setSelection] = useState(['1']);
+
+  const navigate = useNavigate();
   const toggleRow = (id: string) =>
     setSelection((current) =>
       current.includes(id) ? current.filter((item) => item !== id) : [...current, id]
@@ -14,10 +18,18 @@ export function TableSelection() {
   const toggleAll = () =>
     setSelection((current) => (current.length === data.length ? [] : data.map((item) => item.id)));
 
+  const userDetail = (id: string) => {
+    navigate(`admin/${id}`);
+  };
   const rows = data.map((item) => {
     const selected = selection.includes(item.id);
     return (
-      <Table.Tr key={item.id} className={cx({ [classes.rowSelected]: selected })}>
+      <Table.Tr
+        onClick={() => {
+          userDetail(item.id);
+        }}
+        key={item.id}
+        className={cx({ [classes.rowSelected]: selected })}>
         <Table.Td>
           <Checkbox checked={selection.includes(item.id)} onChange={() => toggleRow(item.id)} />
         </Table.Td>
@@ -33,6 +45,13 @@ export function TableSelection() {
         <Table.Td>{item.nickName}</Table.Td>
         <Table.Td>{item.phone}</Table.Td>
         <Table.Td>{item.balans}</Table.Td>
+        <ActionIcon variant="subtle" color="gray">
+          <IconFileCheck
+            onClick={() => userDetail(item.id)}
+            style={{ width: rem(16), height: rem(16) }}
+            stroke={1.5}
+          />
+        </ActionIcon>
       </Table.Tr>
     );
   });

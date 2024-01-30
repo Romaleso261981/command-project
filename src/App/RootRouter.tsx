@@ -19,7 +19,7 @@ export default function RootRouter() {
           <Route path="/login" element={<AuthPage />} />
           <Route path="admin" element={<AdminPage />} />
           <Route index element={<MainPage />} />
-          <Route path="admin/:id" element={<ProfilePage />} />
+          <Route path="admin/admin/:id" element={<ProfilePage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

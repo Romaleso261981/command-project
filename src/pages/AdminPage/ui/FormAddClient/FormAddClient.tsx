@@ -1,4 +1,4 @@
-import { Button, Flex, Input, Text, Title } from '@mantine/core';
+import { Button, Flex, Group, Input, Text, Title } from '@mantine/core';
 
 import type { Users } from '@/shared/types/Types';
 
@@ -16,7 +16,6 @@ export const FormAddClient = (props: Props) => {
       <Title order={1}>Клиенты</Title>
       <Flex mih={50} gap="sm" justify="flex-start" align="flex-start" direction="row" wrap="wrap">
         <Text size="xl">{`Всего: ${userData.length}`}</Text>
-        <Button variant="filled">Добавить клиента</Button>
       </Flex>
       <Flex mih={50} gap="sm" justify="flex-start" align="flex-start" direction="row" wrap="wrap">
         <Input.Wrapper label="Телефон">
@@ -32,6 +31,10 @@ export const FormAddClient = (props: Props) => {
         <FileInput size="xs" placeholder="Input placeholder" />
         <FileInput size="xs" placeholder="Input placeholder" /> */}
       </Flex>
+      <Group className={s.searchWrapper}>
+        <Input placeholder="search" className={s.input} />
+        <Button variant="filled">Збросить</Button>
+      </Group>
     </Flex>
   );
 };
