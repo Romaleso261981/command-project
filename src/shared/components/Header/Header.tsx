@@ -10,6 +10,7 @@ import {
   Search,
   UserInfo
 } from './ui';
+import { MESSAGES } from './ui/Messages/data';
 
 export type HeaderProps = {
   navbarExpanded: boolean;
@@ -25,7 +26,7 @@ export function Header() {
       </Group>
       <Group gap="xs" justify="space-between">
         <Search />
-        <Messages />
+        <Messages messagesData={MESSAGES} />
         <Notification />
         <LanguagePicker type="collapsed" />
         <ColorSwitch />

@@ -11,13 +11,17 @@ import {
   useMantineTheme
 } from '@mantine/core';
 import { IconMessageCircle } from '@tabler/icons-react';
+import type { FC } from 'react';
 
-import { ICON_SIZE, MESSAGES } from './data';
+import { ICON_SIZE } from './data';
+import type { Message } from './type';
 
-export const Messages = () => {
+type Props = { messagesData: Message[] };
+
+export const Messages: FC<Props> = ({ messagesData }) => {
   const { colorScheme } = useMantineColorScheme();
   const theme = useMantineTheme();
-  const messages = MESSAGES.map((m) => (
+  const messages = messagesData.map((m) => (
     <Menu.Item
       key={m.id}
       style={{
@@ -32,8 +36,7 @@ export const Messages = () => {
           variant="filled"
           size="sm"
           color={theme.colors[theme.primaryColor][7]}>
-          {Array.from(m.first_name)[0]}
-          {Array.from(m.last_name)[0]}
+          {`${m.first_name[0]} ${m.last_name[0]}`}
         </Avatar>
         <Stack gap={1}>
           <Text fz="sm" fw={600}>
@@ -59,7 +62,7 @@ export const Messages = () => {
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Label tt="uppercase" ta="center" fw={600}>
-          {MESSAGES.length} new notifications
+          {messagesData.length} new notifications
         </Menu.Label>
         {messages}
         <Menu.Item tt="uppercase" ta="center" fw={600}>

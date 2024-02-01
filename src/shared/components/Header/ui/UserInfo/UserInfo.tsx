@@ -1,4 +1,4 @@
-import { Avatar, Group, rem, Stack, Text, UnstyledButton } from '@mantine/core';
+import { Avatar, Box, Group, rem, Stack, Text, UnstyledButton } from '@mantine/core';
 import { IconChevronRight, IconCoin, IconLogin } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -30,7 +30,7 @@ export const UserInfo = () => {
               radius="xl"
               size={28}
             />
-            <div style={{ flex: 1 }}>
+            <Box style={{ flex: 1 }}>
               <Text size="sm" fw={500}>
                 {t('header.name')}
               </Text>
@@ -40,7 +40,7 @@ export const UserInfo = () => {
                   410
                 </Text>
               </Group>
-            </div>
+            </Box>
             <IconChevronRight
               onClick={hendlelogOut}
               style={{ width: rem(14), height: rem(14) }}
