@@ -1,6 +1,5 @@
 import { Button, Input, Modal, Space, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { modals } from '@mantine/modals';
 import { FC } from 'react';
 
 
@@ -19,11 +18,11 @@ export const ModalSettings: FC = () => {
                 <Space h="md" />
                 <Button variant="filled">Обновить</Button>
             </Modal>
-            <Button onClick={open}>
+            <Button onClick={open} color='#192E3E'>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="icon icon-tabler icon-tabler-settings"
-                    color='rgba(150, 198, 235, 1)'
+                    color='#A0D4F9'
                     width="22"
                     height="22"
                     viewBox="0 0 24 24"
@@ -40,5 +39,5 @@ export const ModalSettings: FC = () => {
         </>
 
 
-    )
-}
+    );
+};
