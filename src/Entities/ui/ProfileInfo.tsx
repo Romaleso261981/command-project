@@ -1,20 +1,53 @@
 /* eslint-disable no-nested-ternary */
-import { Badge, Flex, Group, Image, Stack, Tabs, Text } from '@mantine/core';
-import type { FC } from 'react';
+import { Avatar, Button, Group, Stack, Tabs, Text } from '@mantine/core';
+import { useState, type FC } from 'react';
 import { dataUser } from '../config/dataUser';
 import { ModalSettings } from './ModalSettings';
 
-export const ProfileInfo: FC = () => {
 
+export const ProfileInfo: FC = () => {
+    const [hovered, setHovered] = useState(false);
 
     return (
         <Stack>
             <Group gap="s" align='center'>
-                <Image
-                    radius="sd"
-                    h={100}
-                    src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-7.png"
-                />
+                <div
+                    onMouseEnter={() => setHovered(true)}
+                    onMouseLeave={() => setHovered(false)}
+                    style={{ position: 'relative', display: 'inline-block' }}
+                >
+                    <Avatar
+                        src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-7.png"
+                        size={128}
+                    />
+                    {hovered && (
+                        <div
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                width: '100%',
+                                height: '100%',
+                                backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                                borderRadius: '50%',
+                            }}
+                        >
+                            <Group gap='8px'>
+                                <Button size="xs">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-upload" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /><path d="M7 9l5 -5l5 5" /><path d="M12 4l0 12" /></svg>
+                                </Button>
+                                <Button size="xs">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-trash" color='white' width="16"
+                                        height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
+
+                                </Button>
+                            </Group>
+                        </div>
+                    )}
+                </div>
                 <Stack gap="xs" >
                     <Text>{dataUser.name}</Text>
                     <Text size="32px" fw={700}>{dataUser.nickName}</Text>
@@ -56,54 +89,3 @@ export const ProfileInfo: FC = () => {
 
     )
 }
-
-
-
-
-
-
-
-// export const ColorSwitch: FC = () => {
-//   const ICON_SIZE = 20;
-//   const { setColorScheme, colorScheme } = useMantineColorScheme();
-
-//   return (
-//     <Group>
-//       <Menu shadow="lg" width={200}>
-//         <Menu.Target>
-//           <Tooltip label="Switch color modes">
-//             <ActionIcon variant="light">
-//               {colorScheme === 'auto' ? (
-//                 <IconCircleHalf2 size={ICON_SIZE} />
-//               ) : colorScheme === 'dark' ? (
-//                 <IconMoonStars size={ICON_SIZE} />
-//               ) : (
-//                 <IconSunHigh size={ICON_SIZE} />
-//               )}
-//             </ActionIcon>
-//           </Tooltip>
-//         </Menu.Target>
-//         <Menu.Dropdown>
-//           <Menu.Label tt="uppercase" ta="center" fw={600}>
-//             Select color modes
-//           </Menu.Label>
-//           <Menu.Item
-//             leftSection={<IconSunHigh size={16} />}
-//             onClick={() => setColorScheme('light')}>
-//             Light
-//           </Menu.Item>
-//           <Menu.Item
-//             leftSection={<IconMoonStars size={16} />}
-//             onClick={() => setColorScheme('dark')}>
-//             Dark
-//           </Menu.Item>
-//           <Menu.Item
-//             leftSection={<IconCircleHalf2 size={16} />}
-//             onClick={() => setColorScheme('auto')}>
-//             Use System Colors
-//           </Menu.Item>
-//         </Menu.Dropdown>
-//       </Menu>
-//     </Group>
-//   );
-// };
