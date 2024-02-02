@@ -2,7 +2,7 @@ import { Avatar, Checkbox, Group, rem, ScrollArea, Table, Text } from '@mantine/
 import cx from 'clsx';
 import { useState } from 'react';
 
-import { data } from './mocData';
+import { data } from '../mocData';
 import classes from './TableSelection.module.css';
 
 export function TableSelection() {
@@ -29,15 +29,17 @@ export function TableSelection() {
             </Text>
           </Group>
         </Table.Td>
-        <Table.Td>{item.email}</Table.Td>
-        <Table.Td>{item.job}</Table.Td>
+        <Table.Td>{item.rule}</Table.Td>
+        <Table.Td>{item.nickName}</Table.Td>
+        <Table.Td>{item.phone}</Table.Td>
+        <Table.Td>{item.balans}</Table.Td>
       </Table.Tr>
     );
   });
 
   return (
     <ScrollArea>
-      <Table miw={800} verticalSpacing="md">
+      <Table className={classes.tableWrapper} verticalSpacing="md">
         <Table.Thead>
           <Table.Tr>
             <Table.Th style={{ width: rem(40) }}>
@@ -47,9 +49,11 @@ export function TableSelection() {
                 indeterminate={selection.length > 0 && selection.length !== data.length}
               />
             </Table.Th>
-            <Table.Th>User</Table.Th>
-            <Table.Th>Email</Table.Th>
-            <Table.Th>Job</Table.Th>
+            <Table.Th>ФИО</Table.Th>
+            <Table.Th>Роль</Table.Th>
+            <Table.Th>Никнейм</Table.Th>
+            <Table.Th>Телефон</Table.Th>
+            <Table.Th>Баланс</Table.Th>
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>{rows}</Table.Tbody>

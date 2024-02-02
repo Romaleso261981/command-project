@@ -1,4 +1,4 @@
-import { TableSelection } from './ui/components/TableSelection/TableSelection';
+import { TableSelection } from './ui';
 
 export default function AdminPage() {
   return <TableSelection />;

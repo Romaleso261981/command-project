@@ -1,18 +1,10 @@
 import { Center, rem, Stack, Tooltip, UnstyledButton } from '@mantine/core';
 import { MantineLogo } from '@mantinex/mantine-logo';
-import {
-  IconCalendarStats,
-  IconDeviceDesktopAnalytics,
-  IconFingerprint,
-  IconGauge,
-  IconHome2,
-  IconLogout,
-  IconSettings,
-  IconSwitchHorizontal,
-  IconUser
-} from '@tabler/icons-react';
+import type { IconHome2 } from '@tabler/icons-react';
+import { IconLogout, IconSwitchHorizontal } from '@tabler/icons-react';
 import { useState } from 'react';
 
+import { mockdata } from './mockdata';
 import classes from './Navbar.module.css';
 
 interface NavbarLinkProps {
@@ -31,16 +23,6 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
     </Tooltip>
   );
 }
-
-const mockdata = [
-  { icon: IconHome2, label: 'Home' },
-  { icon: IconGauge, label: 'Dashboard' },
-  { icon: IconDeviceDesktopAnalytics, label: 'Analytics' },
-  { icon: IconCalendarStats, label: 'Releases' },
-  { icon: IconUser, label: 'Account' },
-  { icon: IconFingerprint, label: 'Security' },
-  { icon: IconSettings, label: 'Settings' }
-];
 
 export function Navbar() {
   const [active, setActive] = useState(2);

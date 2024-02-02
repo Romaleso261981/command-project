@@ -31,6 +31,13 @@
   "navBar": {
     "home": "Home",
     "admin": "Admin",
-    "profile":"Profile"
+    "profile": "Profile",
+    "game": "Game",
+    "schedule": "Schedule",
+    "store": "Store",
+    "user": "User",
+    "users": "Users",
+    "settings": "Settings",
+    "logout": "Logout"
   }
 }
