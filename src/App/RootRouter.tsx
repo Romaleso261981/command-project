@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { Spiner } from '@/shared/components/Loader/Loader';
+import { RoutersPaths } from '@/shared/types/enums';
 
 import { Layout } from './layout';
 
@@ -15,15 +16,13 @@ export default function RootRouter() {
   return (
     <Suspense fallback={<Spiner />}>
       <Routes>
-        <Route index element={<MainPage />} />
-        <Route path="/login" element={<AuthPage />} />
-        {/*<Route element={<AuthRoute redirectTo="/login" />}> */}
         <Route element={<Layout />}>
-          <Route path="admin" element={<AdminPage />} />
-          <Route path="admin/:id" element={<ProfilePage />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path={RoutersPaths.LOGIN} element={<AuthPage />} />
+          <Route path={RoutersPaths.ADMIN} element={<AdminPage />} />
+          <Route index element={<MainPage />} />
+          <Route path={RoutersPaths.PROFILE} element={<ProfilePage />} />
+          <Route path={RoutersPaths.NOFOUND} element={<NotFound />} />
         </Route>
-        {/* </Route> */}
       </Routes>
     </Suspense>
   );
