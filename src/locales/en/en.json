@@ -23,5 +23,11 @@
     "ourWorks": "Our Works",
     "admin": "Admin",
     "profile": "profile"
+  },
+  "profile": {
+    "update": "Update",
+    "name": "Name",
+    "enterYourName": "Enter your name"
   }
+
 }

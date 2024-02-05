@@ -22,5 +22,10 @@
     "ViewAll": "View all",
     "ourWorks": "Our Works",
     "admin": "Admin"
+  },
+  "profile": {
+    "update": "Обновить",
+    "name": "Имя",
+    "enterYourName": "Введите имя"
   }
 }

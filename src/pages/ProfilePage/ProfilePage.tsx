@@ -1,4 +1,4 @@
-import { ProfileInfo } from '../../Entities/ui/ProfileInfo';
+import { ProfileInfo } from '../../Entities/ui/ProfileInfo/ProfileInfo';
 
 
 function ProfilePage() {
