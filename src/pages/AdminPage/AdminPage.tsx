@@ -1,7 +1,7 @@
 import { AppShell, Burger } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
-import { Header } from '@/features/components/Header/Header';
+import { Header } from '@/features/Header/Header';
 
 import { Navbar } from './ui/components/NavbarMinimal/NavbarMinimal';
 import { TableSelection } from './ui/components/TableSelection/TableSelection';

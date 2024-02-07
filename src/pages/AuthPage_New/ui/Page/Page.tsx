@@ -1,15 +1,14 @@
 import { Container, Flex } from '@mantine/core';
 
 import { Header } from '@/features/Header/Header';
-
-import { AuthUiForm } from './ui/auth-ui-form';
+import { AuthenticationForm } from '@/widgets/AuthenticationForm/index';
 
 export default function AuthPage() {
   return (
     <Container>
       <Header />
       <Flex h="100%">
-        <AuthUiForm />
+        <AuthenticationForm />
       </Flex>
     </Container>
   );
