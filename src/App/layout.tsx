@@ -1,10 +1,7 @@
 import { AppShell } from '@mantine/core';
 import { Outlet } from 'react-router-dom';
 
-import { Header } from '@/shared/components/Header/Header';
-import { Navbar } from '@/shared/components/Header/ui';
-
-import styles from './App.module.css';
+import { Header } from '@/features/Header/Header';
 
 export function Layout() {
   return (
@@ -12,9 +9,7 @@ export function Layout() {
       <AppShell.Header className={styles.header}>
         <Header />
       </AppShell.Header>
-      <AppShell.Navbar className={styles.navbar}>
-        <Navbar />
-      </AppShell.Navbar>
+      <AppShell.Navbar className={styles.navbar}></AppShell.Navbar>
       <AppShell.Main className={styles.main}>
         <Outlet />
       </AppShell.Main>
