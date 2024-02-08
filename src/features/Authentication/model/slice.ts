@@ -8,6 +8,7 @@ import type { RootState } from '@/app/providers/StoreProvider/config/store';
 import type { ConfirmationResult, UserInfo } from '@/features/Authentication/model/types';
 import { auth, db } from '@/shared/config/firebase/firebase';
 import errorHandler from '@/shared/helpers/errorsHandler';
+import { getFirestoreData, setFirestoreData } from '@/shared/api/firebaseApi/firebaseActions';
 
 type formTypes = {
   stepForm: string;
@@ -46,31 +47,31 @@ export const signIn = createAsyncThunk<void, string, { rejectValue: string; stat
 );
 
 export const handlerVerifyCode = createAsyncThunk<
-  UserInfo[] | void,
+  DocumentData | void,
   string,
   { rejectValue: string; state: RootState }
 >('firestore/handlerVerifyCode', async (smsCode: string, { rejectWithValue, dispatch }) => {
   try {
     await recaptchaObj.confirm(smsCode);
     const currentUserUid = auth.currentUser?.uid;
-    const collectionRef = collection(db, 'users');
-    const docsQuery = query(collectionRef, where('uid', '==', currentUserUid));
-    const querySnapshot = await getDocs(docsQuery);
+    if (!currentUserUid) {
+      return;
+    }
+    let fetchCurrentUser = await getFirestoreData('users', currentUserUid!);
+    // const collectionRef = collection(db, 'users');
+    // const docsQuery = query(collectionRef, where('uid', '==', currentUserUid));
+    // const querySnapshot = await getDocs(docsQuery);
 
-    if (querySnapshot.empty) {
+    if (fetchCurrentUser === undefined) {
       dispatch(setCurrentStepForm('nick'));
       return;
     }
-    const user: UserInfo[] = [];
-    querySnapshot.forEach((doc: DocumentData) => {
-      user.push(doc.data());
-    });
-    const [{ displayName }] = user;
-    if (displayName) {
+
+    if (fetchCurrentUser?.displayName) {
       dispatch(setCurrentStepForm('auth'));
     }
 
-    return user;
+    return fetchCurrentUser;
   } catch (error) {
     return rejectWithValue(errorHandler(error, 'handlerVerifyCode Error'));
   }
@@ -83,7 +84,10 @@ export const handlerNicknameInput = createAsyncThunk<
 >('firestore/handlerNicknameInput', async (currentDisplayName, { rejectWithValue, dispatch }) => {
   try {
     const currentUser = auth.currentUser;
-
+    const currentUserUid = auth.currentUser?.uid;
+    if (!currentUserUid) {
+      return;
+    }
     const collectionRef = collection(db, 'users');
     const docsQuery = query(collectionRef, where('displayName', '==', currentDisplayName));
     const querySnapshot = await getDocs(docsQuery);
@@ -93,10 +97,9 @@ export const handlerNicknameInput = createAsyncThunk<
         email: currentUser?.email,
         phoneNumber: currentUser?.phoneNumber,
         photoURL: currentUser?.photoURL,
-        providerId: currentUser?.providerId,
-        uid: currentUser?.uid
+        providerId: currentUser?.providerId
       };
-      await addDoc(collection(db, 'users'), currentUserInfo);
+      await setFirestoreData('users', currentUserUid, currentUserInfo);
       dispatch(setCurrentStepForm('auth'));
       return;
     } else {
