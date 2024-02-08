@@ -1,8 +1,9 @@
 import { AppShell } from '@mantine/core';
 import { Outlet } from 'react-router-dom';
 
-import styles from './App.module.css';
 import { Header } from '@/shared/ui/Header/Header';
+
+import styles from './App.module.css';
 
 export function Layout() {
   return (

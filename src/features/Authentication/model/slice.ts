@@ -2,13 +2,13 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
 import type { DocumentData } from 'firebase/firestore';
-import { addDoc, collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 import type { RootState } from '@/app/providers/StoreProvider/config/store';
 import type { ConfirmationResult, UserInfo } from '@/features/Authentication/model/types';
+import { getFirestoreData, setFirestoreData } from '@/shared/api/firebaseApi/firebaseActions';
 import { auth, db } from '@/shared/config/firebase/firebase';
 import errorHandler from '@/shared/helpers/errorsHandler';
-import { getFirestoreData, setFirestoreData } from '@/shared/api/firebaseApi/firebaseActions';
 
 type formTypes = {
   stepForm: string;
@@ -57,7 +57,7 @@ export const handlerVerifyCode = createAsyncThunk<
     if (!currentUserUid) {
       return;
     }
-    let fetchCurrentUser = await getFirestoreData('users', currentUserUid!);
+    const fetchCurrentUser = await getFirestoreData('users', currentUserUid!);
     // const collectionRef = collection(db, 'users');
     // const docsQuery = query(collectionRef, where('uid', '==', currentUserUid));
     // const querySnapshot = await getDocs(docsQuery);
