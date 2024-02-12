@@ -15,11 +15,12 @@ interface NickNameFormProps {
 export const NickNameForm: FC<NickNameFormProps> = ({ form }) => {
   const dispatch = useAppDispatch();
 
-  const displayNameHandler = async () => {
-    dispatch(await handlerNicknameInput(form.values.nickName));
+  const displayNameHandler = () => {
+    dispatch(handlerNicknameInput(form.values.nickName));
   };
 
   const { t } = useTranslation();
+
   return (
     <Container size={460} my={30} ta="center">
       <Paper withBorder shadow="md" p={30} radius="md" mt="xl">

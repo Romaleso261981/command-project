@@ -22,7 +22,7 @@ export const deleteFirestoreData = async (path: string, id: string): Promise<voi
 export const getFirestoreData = async <T extends DocumentData>(
   path: string,
   id: string
-): Promise<T | undefined> => {
+): Promise<T | null> => {
   const docRef = doc(db, path, id);
   const docSnap = await getDoc(docRef);
 
@@ -30,7 +30,7 @@ export const getFirestoreData = async <T extends DocumentData>(
     return docSnap.data() as T;
   }
 
-  return undefined;
+  return null;
 };
 
 export const updateFirestoreData = async <T>(

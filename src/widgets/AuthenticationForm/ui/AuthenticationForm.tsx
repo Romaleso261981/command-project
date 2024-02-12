@@ -1,9 +1,7 @@
-// import SuccessCheckCode from '@components/SuccessCheckCode/SuccessCheckCode';
 import { Container } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
 import { getStepFormState } from '@/app/providers/StoreProvider/config/selectors'; // поправить импорт
-// import { setDisplayName, setPhoneNumber, setSmsCode } from '@/redux/slices/curentUserSlice';
 import { CheckSmsCodeForm, LoginForm, NickNameForm } from '@/features/Authentication/index';
 import type { FormFields } from '@/features/Authentication/model/types'; // поправить импорт
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
@@ -42,7 +40,7 @@ export const AuthenticationForm = () => {
 
   return (
     <Container size={555} my={30} ta="center" mt={250}>
-      <form onSubmit={form.onSubmit(() => {})}>{renderForm(stepForm)}</form>
+      <form>{renderForm(stepForm)}</form>
     </Container>
   );
 };

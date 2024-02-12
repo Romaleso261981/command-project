@@ -22,7 +22,9 @@ export const LoginForm: FC<LoginFormProps> = ({ form }) => {
   const handlerAuth = () => {
     dispatch(signIn(form.values.phoneNumber));
   };
+
   const { t } = useTranslation();
+
   return (
     <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
       <Text>{t('sign')}</Text>

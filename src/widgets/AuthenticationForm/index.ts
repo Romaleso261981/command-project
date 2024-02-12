@@ -1,1 +1,1 @@
-export { AuthenticationForm } from './ui/AuthenticationForm';
+export { AuthenticationForm } from '@/widgets/AuthenticationForm/ui/AuthenticationForm';

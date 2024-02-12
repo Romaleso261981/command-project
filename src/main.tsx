@@ -4,7 +4,7 @@ import './shared/config/firebase/firebase.ts';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 
-import App from './App/App.tsx';
+import App from '@/app/App.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>

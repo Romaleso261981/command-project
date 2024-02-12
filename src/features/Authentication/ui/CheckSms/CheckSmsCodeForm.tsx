@@ -15,10 +15,12 @@ interface CheckSmsCodeFormProps {
 export const CheckSmsCodeForm: FC<CheckSmsCodeFormProps> = ({ form }) => {
   const dispatch = useAppDispatch();
 
-  const handlerVerifyCodeSms = async () => {
-    await dispatch(handlerVerifyCode(form.values.smsCode));
+  const handlerVerifyCodeSms = () => {
+    dispatch(handlerVerifyCode(form.values.smsCode));
   };
+
   const { t } = useTranslation();
+
   return (
     <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
       <Text>{t('enterCode')}</Text>

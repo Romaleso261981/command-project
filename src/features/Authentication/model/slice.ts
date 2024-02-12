@@ -1,13 +1,17 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
 import type { DocumentData } from 'firebase/firestore';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
 import type { RootState } from '@/app/providers/StoreProvider/config/store';
 import type { ConfirmationResult, UserInfo } from '@/features/Authentication/model/types';
 import { getFirestoreData, setFirestoreData } from '@/shared/api/firebaseApi/firebaseActions';
-import { auth, db } from '@/shared/config/firebase/firebase';
+import {
+  convertUserField,
+  getAuth,
+  getDb,
+  setupRecaptcha
+} from '@/shared/api/firebaseApi/firebaseAuthActions';
 import errorHandler from '@/shared/helpers/errorsHandler';
 
 type formTypes = {
@@ -24,13 +28,6 @@ enum Status {
   SUCCES = 'succes',
   ERROR = 'error'
 }
-
-const setupRecaptcha = (phoneNumber: string) => {
-  const recapthca = new RecaptchaVerifier(auth, 'sign-in-button', {
-    size: 'invisible'
-  });
-  return signInWithPhoneNumber(auth, phoneNumber, recapthca);
-};
 
 let recaptchaObj: ConfirmationResult;
 
@@ -53,15 +50,11 @@ export const handlerVerifyCode = createAsyncThunk<
 >('firestore/handlerVerifyCode', async (smsCode: string, { rejectWithValue, dispatch }) => {
   try {
     await recaptchaObj.confirm(smsCode);
-    const currentUserUid = auth.currentUser?.uid;
+    const currentUserUid = getAuth().currentUser?.uid;
     if (!currentUserUid) {
       return;
     }
     const fetchCurrentUser = await getFirestoreData('users', currentUserUid!);
-    // const collectionRef = collection(db, 'users');
-    // const docsQuery = query(collectionRef, where('uid', '==', currentUserUid));
-    // const querySnapshot = await getDocs(docsQuery);
-
     if (fetchCurrentUser === undefined) {
       dispatch(setCurrentStepForm('nick'));
       return;
@@ -83,22 +76,17 @@ export const handlerNicknameInput = createAsyncThunk<
   { rejectValue: string; state: RootState }
 >('firestore/handlerNicknameInput', async (currentDisplayName, { rejectWithValue, dispatch }) => {
   try {
-    const currentUser = auth.currentUser;
-    const currentUserUid = auth.currentUser?.uid;
+    const currentUserUid = getAuth().currentUser?.uid;
     if (!currentUserUid) {
+      errorHandler('currentUserUid error', 'currentUserUid error');
       return;
     }
+    const db = getDb();
     const collectionRef = collection(db, 'users');
     const docsQuery = query(collectionRef, where('displayName', '==', currentDisplayName));
     const querySnapshot = await getDocs(docsQuery);
     if (querySnapshot.empty) {
-      const currentUserInfo = {
-        displayName: currentDisplayName,
-        email: currentUser?.email,
-        phoneNumber: currentUser?.phoneNumber,
-        photoURL: currentUser?.photoURL,
-        providerId: currentUser?.providerId
-      };
+      const currentUserInfo = convertUserField(currentDisplayName);
       await setFirestoreData('users', currentUserUid, currentUserInfo);
       dispatch(setCurrentStepForm('auth'));
       return;
@@ -132,9 +120,8 @@ const formType = createSlice({
       state.status = 'loading';
     });
 
-    builder.addCase(handlerVerifyCode.fulfilled, (state, action) => {
+    builder.addCase(handlerVerifyCode.fulfilled, (state) => {
       state.status = 'auth';
-      state.currentUserFetch = action.payload;
     });
 
     builder.addCase(handlerVerifyCode.rejected, (state) => {
