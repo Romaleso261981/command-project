@@ -1,7 +1,7 @@
 import { Image } from '@mantine/core';
 import { Link } from 'react-router-dom';
 
-import icon from '@/App/assets/test.svg';
+import icon from '@/app/assets/test.svg';
 
 import classes from './HeaderTitle.module.css';
 
