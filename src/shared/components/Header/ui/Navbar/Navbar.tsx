@@ -1,11 +1,13 @@
 import { Group, Stack } from '@mantine/core';
 import {
-  IconDeviceDesktopAnalytics,
-  IconFingerprint,
+  IconBuildingStore,
+  IconCalendarClock,
+  IconDeviceGamepad2,
   IconHome2,
-  IconLogin,
   IconLogout,
-  IconSettings
+  IconSettings,
+  IconUser,
+  IconUsers
 } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 
@@ -21,18 +23,24 @@ export const Navbar = () => {
     <nav className={classes.navbar}>
       <Stack justify="space-between" h={550} gap={20}>
         <Group>
-          <NavbarLink path={RoutersPaths.LOGIN} icon={IconLogin} label={t('auth.login')} />
           <NavbarLink path={RoutersPaths.MAIN} icon={IconHome2} label={t('navBar.home')} />
           <NavbarLink
-            path={RoutersPaths.ADMIN}
-            icon={IconDeviceDesktopAnalytics}
-            label={t('navBar.admin')}
+            path={RoutersPaths.LOGIN}
+            icon={IconDeviceGamepad2}
+            label={t('navBar.game')}
           />
-          <NavbarLink path={RoutersPaths.MAIN} icon={IconFingerprint} label={t('navBar.profile')} />
+          <NavbarLink
+            path={RoutersPaths.MAIN}
+            icon={IconCalendarClock}
+            label={t('navBar.schedule')}
+          />
+          <NavbarLink path={RoutersPaths.MAIN} icon={IconBuildingStore} label={t('navBar.store')} />
+          <NavbarLink path={RoutersPaths.MAIN} icon={IconUser} label={t('navBar.user')} />
+          <NavbarLink path={RoutersPaths.ADMIN} icon={IconUsers} label={t('navBar.users')} />
         </Group>
         <Group>
-          <NavbarLink path={RoutersPaths.MAIN} icon={IconSettings} label="Settings" />
-          <NavbarLink path={RoutersPaths.MAIN} icon={IconLogout} label="Logout" />
+          <NavbarLink path={RoutersPaths.MAIN} icon={IconSettings} label={t('navBar.settings')} />
+          <NavbarLink path={RoutersPaths.MAIN} icon={IconLogout} label={t('navBar.logout')} />
         </Group>
       </Stack>
     </nav>
