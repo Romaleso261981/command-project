@@ -5,7 +5,6 @@ import { Layout } from '@/app/layout';
 import { RoutersPaths } from '@/shared/types/enums';
 import { Spiner } from '@/shared/ui/Loader/Loader';
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
-// const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
 const AuthPage = lazy(() => import('@/pages/AuthPage/index'));
 const AdminPage = lazy(() => import('../pages/AdminPage/AdminPage'));
 const NotFound = lazy(() => import('../pages/Error-404/Error-404'));

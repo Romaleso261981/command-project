@@ -4,7 +4,7 @@ import type { DocumentData } from 'firebase/firestore';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
 import type { RootState } from '@/app/providers/StoreProvider/config/store';
-import type { ConfirmationResult, UserInfo } from '@/features/Authentication/model/types';
+import type { ConfirmationResult } from '@/features/Authentication/model/types';
 import { getFirestoreData, setFirestoreData } from '@/shared/api/firebaseApi/firebaseActions';
 import {
   convertUserField,
@@ -16,11 +16,7 @@ import errorHandler from '@/shared/helpers/errorsHandler';
 
 type formTypes = {
   stepForm: string;
-  smsCode: string;
-  currentUserFetch: UserInfo[] | void;
   status: string;
-  isTaken: boolean | void;
-  captchaFetch: ConfirmationResult | null;
 };
 
 enum Status {
@@ -55,7 +51,7 @@ export const handlerVerifyCode = createAsyncThunk<
       return;
     }
     const fetchCurrentUser = await getFirestoreData('users', currentUserUid!);
-    if (fetchCurrentUser === undefined) {
+    if (fetchCurrentUser === null) {
       dispatch(setCurrentStepForm('nick'));
       return;
     }
@@ -100,11 +96,8 @@ export const handlerNicknameInput = createAsyncThunk<
 
 const initialState = {
   stepForm: 'login',
-  smsCode: '',
-  currentUserFetch: [],
   status: 'loading',
-  isTaken: false,
-  captchaFetch: null
+
 } as formTypes;
 
 const formType = createSlice({
@@ -132,9 +125,8 @@ const formType = createSlice({
       state.status = 'loading';
     });
 
-    builder.addCase(handlerNicknameInput.fulfilled, (state, action) => {
+    builder.addCase(handlerNicknameInput.fulfilled, (state) => {
       state.status = 'auth';
-      state.isTaken = action.payload;
     });
 
     builder.addCase(handlerNicknameInput.rejected, (state) => {
