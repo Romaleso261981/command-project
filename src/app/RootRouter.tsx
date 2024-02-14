@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import UserPage from '@/pages/UserPage/UserPage';
-import { Spiner } from '@/shared/components/Loader/Loader';
+import { Spiner } from '@/shared/components';
 import { RoutersPaths } from '@/shared/types/enums';
 
 import { Layout } from './layout';
