@@ -17,9 +17,9 @@ export default function RootRouter() {
   return (
     <Suspense fallback={<Spiner />}>
       <Routes>
+        <Route path={RoutersPaths.LOGIN} element={<AuthPage />} />
         <Route element={<Layout />}>
           <Route path={RoutersPaths.MAIN} element={<MainPage />} />
-          <Route path={RoutersPaths.LOGIN} element={<AuthPage />} />
           <Route path={RoutersPaths.ADMIN} element={<AdminPage />} />
           <Route path={RoutersPaths.PROFILE} element={<ProfilePage />} />
           <Route path={RoutersPaths.USERDETAIL} element={<UserPage />} />
