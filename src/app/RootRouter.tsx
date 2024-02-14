@@ -2,13 +2,13 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import UserPage from '@/pages/UserPage/UserPage';
-import { Spiner } from '@/shared/components';
 import { RoutersPaths } from '@/shared/types/enums';
+import { Spiner } from '@/shared/ui';
 
 import { Layout } from './layout';
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
-const AuthPage = lazy(() => import('@/pages/AuthPage/index'));
+const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
 const AdminPage = lazy(() => import('../pages/AdminPage/AdminPage'));
 const NotFound = lazy(() => import('../pages/Error-404/Error-404'));
 const ProfilePage = lazy(() => import('../pages/ProfilePage/ProfilePage'));

@@ -1,3 +1,5 @@
+export const ICON_SIZE = 20;
+
 export const MESSAGES = [
   {
     id: '687725a3-5489-486e-9ffd-180df00f8e10',
