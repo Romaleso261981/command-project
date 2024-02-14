@@ -13,7 +13,7 @@ const App: react.FC = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <MantineProvider defaultColorScheme="dark">
+        <MantineProvider defaultColorScheme="light">
           <Notifications position="top-right" />
           <RootRouter />
         </MantineProvider>

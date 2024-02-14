@@ -1,12 +1,20 @@
-import { Center } from '@mantine/core';
+import { Center, Text, Title } from '@mantine/core';
+import { Link, useParams } from 'react-router-dom';
 
 import styles from './ProfilePage.module.css';
 
 function ProfilePage() {
+  const { id } = useParams();
   return (
-    <Center className={styles.wrapper}>
-      <h1>ProfilePage</h1>;
-    </Center>
+    <>
+      <Center className={styles.wrapper}>
+        <Title>ProfilePage</Title>
+        <Text>{id}</Text>
+      </Center>
+      <Center>
+        <Link to="/admin">Back to admin</Link>
+      </Center>
+    </>
   );
 }
 

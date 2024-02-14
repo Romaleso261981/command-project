@@ -17,7 +17,7 @@ const LogoutButton: FC = () => {
         navigate('/');
       })
       .catch((error) => {
-        console.log(error, 'logout error');
+        console.log('logout error', error);
       });
   }, []);
   return (

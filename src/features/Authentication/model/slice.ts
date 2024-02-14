@@ -96,8 +96,7 @@ export const handlerNicknameInput = createAsyncThunk<
 
 const initialState = {
   stepForm: 'login',
-  status: 'loading',
-
+  status: 'loading'
 } as formTypes;
 
 const formType = createSlice({

@@ -9,7 +9,7 @@ export const UserInfo = () => {
   const { t } = useTranslation();
 
   const user = {
-    id: 'kjdfvkjndfnk'
+    id: '12'
   };
   const navigate = useNavigate();
 
@@ -19,11 +19,14 @@ export const UserInfo = () => {
   const hendlelogin = () => {
     navigate('/admin');
   };
+  const userDetail = () => {
+    navigate(`profile/${user.id}`);
+  };
 
   return (
     <Stack justify="center" gap={0}>
       {user ? (
-        <UnstyledButton className={styles.user}>
+        <UnstyledButton onClick={userDetail} className={styles.user}>
           <Group>
             <Avatar
               src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png"
