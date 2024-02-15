@@ -1,4 +1,4 @@
-import { Avatar, Box, Group, rem, Stack, Text, UnstyledButton } from '@mantine/core';
+import { Avatar, Box, Group, Indicator, rem, Stack, Text, UnstyledButton } from '@mantine/core';
 import { IconChevronRight, IconCoin, IconLogin } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -28,11 +28,13 @@ export const UserInfo = () => {
       {user ? (
         <UnstyledButton onClick={userDetail} className={styles.user}>
           <Group>
-            <Avatar
-              src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png"
-              radius="xl"
-              size={28}
-            />
+            <Indicator>
+              <Avatar
+                src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png"
+                radius="xl"
+                size={28}
+              />
+            </Indicator>
             <Box style={{ flex: 1 }}>
               <Text size="sm" fw={500}>
                 {t('header.name')}
