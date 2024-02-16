@@ -3,18 +3,20 @@ import { IconChevronDown } from '@tabler/icons-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { LanguagePickerData } from '@/shared/config/LanguagePicker/LanguagePicker';
+import { getLocalStorage } from '@/shared/helpers/useLocalStorage';
 
+import images from './images';
 import classes from './LanguagePicker.module.css';
+import type { LanguagePickerProps, LanPickerProps } from './types';
 
-type LanPickerProps = { label: string; image: string };
-
-type LanguagePickerProps = {
-  type: 'collapsed' | 'expanded';
-};
+const data = [
+  { label: 'en', image: images.english },
+  { label: 'ru', image: images.ru }
+];
 
 export const LanguagePicker = ({ type }: LanguagePickerProps) => {
-  const [selected, setSelected] = useState(LanguagePickerData[0]);
+  const initialLeng = data.find((i) => i.label === getLocalStorage('i18nextLng')) ?? data[0];
+  const [selected, setSelected] = useState(initialLeng);
   const { i18n } = useTranslation();
 
   const changeLanguage = (item: LanPickerProps) => {
@@ -22,7 +24,7 @@ export const LanguagePicker = ({ type }: LanguagePickerProps) => {
     setSelected(item);
   };
 
-  const items = LanguagePickerData.map((item) => (
+  const items = data.map((item) => (
     <Menu.Item
       leftSection={<Image src={item.image} width={18} height={18} alt="flag" />}
       onClick={() => changeLanguage(item)}

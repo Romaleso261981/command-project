@@ -1,8 +1,8 @@
 import { AppShell } from '@mantine/core';
 import { Outlet } from 'react-router-dom';
 
-import { Header } from '@/shared/ui/Header/Header';
-import { Navbar } from '@/shared/ui/Header/ui';
+import { Header } from '@/features/Header/Header';
+import { Navbar } from '@/features/Navbar/Navbar';
 
 import styles from './App.module.css';
 
