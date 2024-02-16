@@ -1,23 +1,31 @@
-import i18next from 'i18next';
+import i18n from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import Backend from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 
-import en from '../../../locales/en/en.json';
-import ru from '../../../locales/ru/ru.json';
+import enTranslation from '@/shared/config/i18n/locales/en/en.json';
+import ruTranslation from '@/shared/config/i18n/locales/ru/ru.json';
 
-i18next.use(initReactI18next).init({
-  debug: true,
-  fallbackLng: 'en',
-  interpolation: {
-    escapeValue: false
-  },
-  resources: {
-    en: {
-      translation: en
+i18n
+  .use(Backend)
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    fallbackLng: 'en',
+    debug: false,
+
+    interpolation: {
+      escapeValue: false
     },
-    ru: {
-      translation: ru
-    }
-  }
-});
 
-export default i18next;
+    resources: {
+      en: {
+        translation: enTranslation
+      },
+      ru: {
+        translation: ruTranslation
+      }
+    }
+  });
+
+export default i18n;
