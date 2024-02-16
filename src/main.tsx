@@ -1,5 +1,6 @@
 import './shared/config/i18n/i18n.ts';
 import './shared/config/firebase/firebase.ts';
+import '@mantine/core/styles.css';
 
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';

@@ -24,3 +24,14 @@ export type MessagesData = {
   title?: string;
   icon?: string;
 };
+
+export type Users = {
+  id: string;
+  nickName: string;
+  avatar: string;
+  name: string;
+  balans: string;
+  phone: string;
+  rule: string;
+  email: string;
+};
