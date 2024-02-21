@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { GithubAuthProvider, GoogleAuthProvider, getAuth } from 'firebase/auth';
+import { getAuth, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
@@ -23,8 +23,6 @@ export const imageDb = getStorage(app);
 
 export const googleProvider = new GoogleAuthProvider();
 export const githubProvider = new GithubAuthProvider();
-
-
 
 // const firebaseConfig = {
 //   apiKey: 'AIzaSyC3oGZXQ3ddivNrOgZ-WhR8q3HsQPIMbOk',
