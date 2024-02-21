@@ -1,5 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import type { User } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 import type { DocumentData } from 'firebase/firestore';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
@@ -12,6 +14,7 @@ import {
   getDb,
   setupRecaptcha
 } from '@/shared/api/firebaseApi/firebaseAuthActions';
+import { githubProvider, googleProvider } from '@/shared/config/firebase/firebase';
 import errorHandler from '@/shared/helpers/errorsHandler';
 
 type formTypes = {
@@ -26,6 +29,57 @@ enum Status {
 }
 
 let recaptchaObj: ConfirmationResult;
+
+export const setUserByGithub = createAsyncThunk<
+  User | undefined,
+  () => void,
+  { rejectValue: string }
+>('setUserByGithub', async (navigate, { rejectWithValue }) => {
+  try {
+    const auth = getAuth();
+    const { user } = await signInWithPopup(auth, githubProvider);
+    console.log(user);
+    if (user.displayName === null) {
+      return;
+      //воткнуть нотифик
+    }
+    const currentUserUid = getAuth().currentUser?.uid;
+    if (currentUserUid === undefined) {
+      return;
+    }
+    const currentUserInfo = convertUserField(user.displayName);
+    await setFirestoreData('users', currentUserUid, currentUserInfo);
+    navigate();
+    return user;
+  } catch (error) {
+    return rejectWithValue(errorHandler(error, 'Error with Github'));
+  }
+});
+
+export const setUserByGoogle = createAsyncThunk<
+  User | undefined,
+  () => void,
+  { rejectValue: string }
+>('setUserByGoogle', async (navigate, { rejectWithValue }) => {
+  try {
+    const auth = getAuth();
+    const { user } = await signInWithPopup(auth, googleProvider);
+    console.log(user);
+    if (user.displayName === null) {
+      return;
+    }
+    const currentUserUid = getAuth().currentUser?.uid;
+    if (currentUserUid === undefined) {
+      return;
+    }
+    const currentUserInfo = convertUserField(user.displayName);
+    await setFirestoreData('users', currentUserUid, currentUserInfo);
+    navigate();
+    return user;
+  } catch (error) {
+    return rejectWithValue(errorHandler(error, 'Error with Google'));
+  }
+});
 
 export const signIn = createAsyncThunk<void, string, { rejectValue: string; state: RootState }>(
   'auth/signPhoneNumber',
@@ -96,8 +150,7 @@ export const handlerNicknameInput = createAsyncThunk<
 
 const initialState = {
   stepForm: 'login',
-  status: 'loading',
-
+  status: 'loading'
 } as formTypes;
 
 const formType = createSlice({
@@ -141,6 +194,17 @@ const formType = createSlice({
     });
 
     builder.addCase(signIn.rejected, (state) => {
+      state.status = Status.ERROR;
+    });
+    builder.addCase(setUserByGithub.pending, (state) => {
+      state.status = Status.LOADING;
+    });
+
+    builder.addCase(setUserByGithub.fulfilled, (state) => {
+      state.status = Status.SUCCES;
+    });
+
+    builder.addCase(setUserByGithub.rejected, (state) => {
       state.status = Status.ERROR;
     });
   }

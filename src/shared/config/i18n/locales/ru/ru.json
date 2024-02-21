@@ -10,7 +10,9 @@
     "registration": "Успешная регистрация.",
     "useAllFunction": "Теперь ты можешь использовать весь функционал сайта!",
     "backHomeButton": "Вернуться на домашнюю страницу.",
-    "login": "Войти"
+    "login": "Войти",
+    "withGoogle": "Продолжить с Google",
+    "withGithub": "Продолжить с Github"
   },
   "header": {
     "home": "Home",
@@ -31,5 +33,10 @@
     "home": "На главную",
     "admin": "Админ",
     "profile": "Детали"
+  },
+  "profile": {
+    "update": "Обновить",
+    "name": "Имя",
+    "enterYourName": "Введите имя"
   }
 }

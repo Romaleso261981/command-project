@@ -1,11 +1,11 @@
-import { ProfileInfo } from '../../Entities/ui/ProfileInfo/ProfileInfo';
-
+import { ProfileInfo } from '../../enteties/ui/ProfileInfo/ProfileInfo';
+import styles from './ProfilePage.module.css';
 
 function ProfilePage() {
   return (
-    // <Center className={styles.wrapper}>
+    <div className={styles.wrapper}>
       <ProfileInfo />
-    // </Center>
+    </div>
   );
 }
 

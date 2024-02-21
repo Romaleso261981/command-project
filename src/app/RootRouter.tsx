@@ -18,7 +18,7 @@ export default function RootRouter() {
           <Route path={RoutersPaths.LOGIN} element={<AuthPage />} />
           <Route path={RoutersPaths.ADMIN} element={<AdminPage />} />
           <Route index element={<MainPage />} />
-          <Route path={RoutersPaths.PROFILE} element={<ProfilePage />} />
+          <Route path={'/profile'} element={<ProfilePage />} />
           <Route path={RoutersPaths.NOFOUND} element={<NotFound />} />
         </Route>
       </Routes>
