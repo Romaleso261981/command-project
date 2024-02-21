@@ -30,9 +30,16 @@
     "name": "Петро"
   },
   "navBar": {
-    "home": "На главную",
+    "home": "Главная",
     "admin": "Админ",
-    "profile": "Детали"
+    "profile": "Детали",
+    "game": "Игры",
+    "schedule": "График",
+    "store": "Магазин",
+    "user": "Юзер",
+    "users": "Юзеры",
+    "settings": "Настройки",
+    "logout": "Выход"
   },
   "profile": {
     "update": "Обновить",
