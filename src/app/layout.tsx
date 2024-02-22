@@ -8,7 +8,7 @@ import styles from './App.module.css';
 
 export function Layout() {
   return (
-    <AppShell header={{ height: 60 }} navbar={{ width: 260, breakpoint: 'sm' }}>
+    <AppShell header={{ height: 100 }} navbar={{ width: 80, breakpoint: 'sm' }}>
       <AppShell.Header className={styles.header}>
         <Header />
       </AppShell.Header>

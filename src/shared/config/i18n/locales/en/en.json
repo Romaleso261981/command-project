@@ -10,7 +10,9 @@
     "registration": "Successs registarion.",
     "useAllFunction": "Now u can use all function this web site!",
     "backHomeButton": "Get back to home page",
-    "login": "login"
+    "login": "login",
+    "withGoogle": "Continue with Google",
+    "withGithub": "Continue with Github"
   },
   "header": {
     "home": "Home",
@@ -39,5 +41,10 @@
     "users": "Users",
     "settings": "Settings",
     "logout": "Logout"
+  },
+  "profile": {
+    "update": "Update",
+    "name": "Name",
+    "enterYourName": "Enter your name"
   }
 }

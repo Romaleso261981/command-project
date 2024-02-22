@@ -1,4 +1,4 @@
-import { Container, Flex } from '@mantine/core';
+import { Flex } from '@mantine/core';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
@@ -18,10 +18,8 @@ export default function AuthPage() {
   }, [navigate, user]);
 
   return (
-    <Container>
-      <Flex h="100%">
-        <AuthenticationForm />
-      </Flex>
-    </Container>
+    <Flex h="100%" justify={'space-around'} mt={'100px'}>
+      <AuthenticationForm />
+    </Flex>
   );
 }
