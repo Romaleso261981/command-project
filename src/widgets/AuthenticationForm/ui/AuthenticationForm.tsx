@@ -1,4 +1,4 @@
-import { Container } from '@mantine/core';
+import { Flex } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
 import { getStepFormState } from '@/app/providers/StoreProvider/config/selectors'; // поправить импорт
@@ -39,8 +39,8 @@ export const AuthenticationForm = () => {
   };
 
   return (
-    <Container size={555} my={30} ta="center" mt={250}>
+    <Flex>
       <form>{renderForm(stepForm)}</form>
-    </Container>
+    </Flex>
   );
 };

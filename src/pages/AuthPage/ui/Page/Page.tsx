@@ -18,10 +18,10 @@ export default function AuthPage() {
   }, [navigate, user]);
 
   return (
-    <Container>
-      <Flex h="100%">
-        <AuthenticationForm />
-      </Flex>
-    </Container>
+    // <Container>
+    <Flex h="100%" justify={'space-around'} mt={'100px'}>
+      <AuthenticationForm />
+    </Flex>
+    // </Container>
   );
 }
