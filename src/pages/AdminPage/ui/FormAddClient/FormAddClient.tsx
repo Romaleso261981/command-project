@@ -30,7 +30,7 @@ export const FormAddClient = (props: Props) => {
       </Flex>
       <Group className={s.searchWrapper}>
         <Input placeholder="search" className={s.input} />
-        <Button variant="filled">Збросить</Button>
+        <Button variant="filled">Сбросить</Button>
       </Group>
     </Flex>
   );
