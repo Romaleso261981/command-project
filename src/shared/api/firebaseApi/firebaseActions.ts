@@ -1,3 +1,7 @@
+import { collection, getDocs, orderBy, query, where } from 'firebase/firestore';
+
+import type { UserInfo } from '@/features/Authentication/model/types';
+
 import type { DocumentData, DocumentReference } from './models';
 import { db, deleteDoc, doc, getDoc, setDoc, updateDoc } from './models';
 
@@ -40,4 +44,29 @@ export const updateFirestoreData = async <T>(
 ): Promise<void> => {
   const docRef = doc(db, path, id);
   await updateDoc(docRef, data);
+};
+
+export const findData = async (
+  path: string,
+  field: string,
+  searchData: string
+): Promise<{ displayName: string | null; photo: string | null }[]> => {
+  const collectionRef = collection(db, path);
+  const start = searchData;
+  const end = searchData + 'uf8ff';
+  const docsQuery = query(
+    collectionRef,
+    where(field, '>=', start),
+    where(field, '<=', end),
+    orderBy(field)
+  );
+  const querySnapshot = await getDocs(docsQuery);
+  const user: UserInfo[] = [];
+  querySnapshot.forEach((doc: DocumentData) => {
+    user.push(doc.data());
+  });
+
+  return user.map((item) => {
+    return { displayName: item.displayName, photo: item.photoURL };
+  });
 };
