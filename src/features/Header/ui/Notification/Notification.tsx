@@ -9,8 +9,8 @@ export const Notification = () => {
       <Menu.Target>
         <Indicator processing size={10} offset={6}>
           <Tooltip label="Notifications">
-            <ActionIcon size="lg" title="Notifications">
-              <IconBell size={20} />
+            <ActionIcon size="lg" radius={6} bg="transparent" title="Notifications">
+              <IconBell size={25} color={'black'} />
             </ActionIcon>
           </Tooltip>
         </Indicator>

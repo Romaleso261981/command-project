@@ -12,7 +12,7 @@ import {
 } from '@mantine/core';
 import { IconMessageCircle } from '@tabler/icons-react';
 
-import { ICON_SIZE, MESSAGES } from './data';
+import { MESSAGES } from './data';
 
 export const Messages = () => {
   const { colorScheme } = useMantineColorScheme();
@@ -51,8 +51,8 @@ export const Messages = () => {
       <Menu.Target>
         <Indicator processing size={10} offset={6}>
           <Tooltip label="Messages">
-            <ActionIcon size="lg" title="Nessages">
-              <IconMessageCircle size={ICON_SIZE} />
+            <ActionIcon size="lg" radius={6} bg="transparent" title="Nessages">
+              <IconMessageCircle size={25} color={'black'} />
             </ActionIcon>
           </Tooltip>
         </Indicator>
