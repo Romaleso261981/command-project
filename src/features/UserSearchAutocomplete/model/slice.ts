@@ -4,12 +4,12 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '@/app/providers/StoreProvider/config/store';
 import { findUsersDatabase } from '@/shared/api/firebaseApi/firebaseActions';
 import errorHandler from '@/shared/helpers/errorsHandler';
-import  { Status } from '@/shared/types/enums';
+import { Status } from '@/shared/types/enums';
 
 type findUsers = {
   displayName: string | null;
   photo: string | null;
-  id:string | null;
+  id: string | null;
 };
 
 type initialStateType = {
@@ -19,15 +19,17 @@ type initialStateType = {
 };
 
 export const handlerSearchUserInput = createAsyncThunk<
-{ displayName: string | null; photo: string | null; id:string | null }[],
+  { displayName: string | null; photo: string | null; id: string | null }[],
   string,
   { rejectValue: string; state: RootState }
 >('firestore/handlerSearchUserInput', async (currentDisplayName, { rejectWithValue }) => {
   try {
     const user = await findUsersDatabase('users', 'displayName', currentDisplayName);
-    return user.filter((item) => item.displayName?.toLowerCase().includes(currentDisplayName.toLowerCase())).map((item) => {
-      return { displayName: item.displayName, photo: item.photoURL, id:item.uid };
-    });
+    return user
+      .filter((item) => item.displayName?.toLowerCase().includes(currentDisplayName.toLowerCase()))
+      .map((item) => {
+        return { displayName: item.displayName, photo: item.photoURL, id: item.uid };
+      });
   } catch (error) {
     return rejectWithValue(errorHandler(error, 'handlerVerifyCode Error'));
   }

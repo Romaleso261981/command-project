@@ -1,4 +1,4 @@
-import { collection, getDocs, orderBy, query, where } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 import type { UserInfo } from '@/features/Authentication/model/types';
 
@@ -37,8 +37,6 @@ export const getFirestoreData = async <T extends DocumentData>(
   return null;
 };
 
-
-
 export const updateFirestoreData = async <T>(
   path: string,
   id: string,
@@ -48,43 +46,19 @@ export const updateFirestoreData = async <T>(
   await updateDoc(docRef, data);
 };
 
-// export const findUsersData = async (
-//   path: string,
-//   field: string,
-//   searchData: string
-// ): Promise<UserInfo[]> => {
-//   const collectionRef = collection(db, path);
-//   const start = searchData;
-//   const end = searchData + 'uf8ff';
-//   const docsQuery = query(
-//     collectionRef,
-//     where(field, '>=', start),
-//     where(field, '<=', end),
-//     orderBy(field)
-//   );
-//   const querySnapshot = await getDocs(docsQuery);
-//   const user: UserInfo[] = [];
-//   querySnapshot.forEach((doc: DocumentData) => {
-//     user.push(doc.data());
-//   });
+export const findUsersDatabase = async (
+  path: string,
+  field: string,
+  searchData: string
+): Promise<UserInfo[]> => {
+  const collectionRef = collection(db, path);
+  const docsQuery = query(collectionRef, where(field, '>=', searchData));
+  const querySnapshot = await getDocs(docsQuery);
 
-//   return user;
-// };
+  const user: UserInfo[] = [];
+  querySnapshot.forEach((doc: DocumentData) => {
+    user.push(doc.data());
+  });
 
-export const findUsersDatabase = async( 
-  path:string, 
-  field:string, 
-  searchData:string 
-  ):Promise<UserInfo[]> => { 
-  const collectionRef = collection(db, path); 
-  const docsQuery = query(collectionRef, where(field, '>=', searchData)); 
-  const querySnapshot = await getDocs(docsQuery); 
- 
- 
-  const user: UserInfo[] = []; 
-  querySnapshot.forEach((doc: DocumentData) => { 
-    user.push(doc.data()); 
-  }); 
-  
-  return user; 
-} 
+  return user;
+};
