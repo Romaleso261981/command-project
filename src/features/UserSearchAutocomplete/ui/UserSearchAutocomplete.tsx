@@ -1,23 +1,28 @@
 import { Avatar, CloseButton, Combobox, Group, Text, TextInput, useCombobox } from '@mantine/core';
 
-import { getFindUser, getUsersArray } from '@/features/UserSearchAutocomplete/model/selectors';
+import { getFindUser, getUserState, getUsersArray } from '@/features/UserSearchAutocomplete/model/selectors';
 import {
   handlerSearchUserInput,
   setClearSearchImputCloseButton,
   setClearSearchImputOnClose,
   setFindUser
 } from '@/features/UserSearchAutocomplete/model/slice';
+import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 
-export const SearchAutocomplete = () => {
+export const UserSearchAutocomplete = () => {
   const dispatch = useAppDispatch();
+
   const combobox = useCombobox();
+
   const usersArray = useAppSelector(getUsersArray);
+  const userState = useAppSelector(getUserState);
   const findUser = useAppSelector(getFindUser);
-  let i = 0;
+
+  const { t } = useTranslation();
   const options = usersArray.map((item) => (
-    <Combobox.Option value={item.displayName!} key={i++}>
+    <Combobox.Option value={item.displayName!} key={item.id}>
       {
         <Group gap="sm">
           <Avatar size={26} src={item.photo} radius={26} />
@@ -27,7 +32,7 @@ export const SearchAutocomplete = () => {
     </Combobox.Option>
   ));
 
-  const setUser = (string: string) => {
+  const searchUser = (string: string) => {
     dispatch(setFindUser(string));
   };
 
@@ -43,10 +48,17 @@ export const SearchAutocomplete = () => {
     dispatch(setClearSearchImputCloseButton());
   };
 
+  const onChangeInput = (event:React.ChangeEvent<HTMLInputElement>) => {
+    searchUser(event.currentTarget.value);
+    setUsers(event.currentTarget.value);
+    combobox.openDropdown();
+    combobox.updateSelectedOptionIndex();
+  }
+
   return (
     <Combobox
       onOptionSubmit={(optionValue) => {
-        setUser(optionValue);
+        searchUser(optionValue);
         combobox.closeDropdown();
       }}
       store={combobox}
@@ -54,14 +66,9 @@ export const SearchAutocomplete = () => {
       withinPortal={false}>
       <Combobox.Target>
         <TextInput
-          placeholder="Поиск друзей"
+          placeholder={t('autocomplete.searchUser')}
           value={findUser}
-          onChange={(event) => {
-            setUser(event.currentTarget.value);
-            setUsers(event.currentTarget.value);
-            combobox.openDropdown();
-            combobox.updateSelectedOptionIndex();
-          }}
+          onChange={onChangeInput}
           onClick={() => combobox.openDropdown()}
           onFocus={() => combobox.openDropdown()}
           onBlur={() => combobox.closeDropdown()}
@@ -80,7 +87,7 @@ export const SearchAutocomplete = () => {
 
       <Combobox.Dropdown>
         <Combobox.Options>
-          {options.length === 0 ? <Combobox.Empty>Nothing found</Combobox.Empty> : options}
+          {options.length === 0 || userState === '' ? <Combobox.Empty>{t('autocomplete.nothingFound')}</Combobox.Empty> : options}
         </Combobox.Options>
       </Combobox.Dropdown>
     </Combobox>

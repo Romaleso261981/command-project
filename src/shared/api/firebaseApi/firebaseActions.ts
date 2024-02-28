@@ -37,6 +37,8 @@ export const getFirestoreData = async <T extends DocumentData>(
   return null;
 };
 
+
+
 export const updateFirestoreData = async <T>(
   path: string,
   id: string,
@@ -46,27 +48,43 @@ export const updateFirestoreData = async <T>(
   await updateDoc(docRef, data);
 };
 
-export const findData = async (
-  path: string,
-  field: string,
-  searchData: string
-): Promise<{ displayName: string | null; photo: string | null }[]> => {
-  const collectionRef = collection(db, path);
-  const start = searchData;
-  const end = searchData + 'uf8ff';
-  const docsQuery = query(
-    collectionRef,
-    where(field, '>=', start),
-    where(field, '<=', end),
-    orderBy(field)
-  );
-  const querySnapshot = await getDocs(docsQuery);
-  const user: UserInfo[] = [];
-  querySnapshot.forEach((doc: DocumentData) => {
-    user.push(doc.data());
-  });
+// export const findUsersData = async (
+//   path: string,
+//   field: string,
+//   searchData: string
+// ): Promise<UserInfo[]> => {
+//   const collectionRef = collection(db, path);
+//   const start = searchData;
+//   const end = searchData + 'uf8ff';
+//   const docsQuery = query(
+//     collectionRef,
+//     where(field, '>=', start),
+//     where(field, '<=', end),
+//     orderBy(field)
+//   );
+//   const querySnapshot = await getDocs(docsQuery);
+//   const user: UserInfo[] = [];
+//   querySnapshot.forEach((doc: DocumentData) => {
+//     user.push(doc.data());
+//   });
 
-  return user.map((item) => {
-    return { displayName: item.displayName, photo: item.photoURL };
-  });
-};
+//   return user;
+// };
+
+export const findUsersDatabase = async( 
+  path:string, 
+  field:string, 
+  searchData:string 
+  ):Promise<UserInfo[]> => { 
+  const collectionRef = collection(db, path); 
+  const docsQuery = query(collectionRef, where(field, '>=', searchData)); 
+  const querySnapshot = await getDocs(docsQuery); 
+ 
+ 
+  const user: UserInfo[] = []; 
+  querySnapshot.forEach((doc: DocumentData) => { 
+    user.push(doc.data()); 
+  }); 
+  
+  return user; 
+} 

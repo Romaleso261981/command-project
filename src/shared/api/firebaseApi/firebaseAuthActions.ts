@@ -26,7 +26,8 @@ export const convertUserField = (displayName: string) => {
     email: currentUser?.email,
     phoneNumber: currentUser?.phoneNumber,
     photoURL: currentUser?.photoURL,
-    providerId: currentUser?.providerId
+    providerId: currentUser?.providerId,
+    uid:currentUser?.uid,
   };
   return currentUserInfo;
 };
