@@ -1,9 +1,9 @@
-import { SearchAutocomplete } from '@/features/UserSearchAutocomplete/ui/SearchAutocomplete';
+import { UserSearchAutocomplete } from '@/features/UserSearchAutocomplete/ui/UserSearchAutocomplete';
 
 export const Search = () => {
   return (
     <>
-      <SearchAutocomplete />
+      <UserSearchAutocomplete />
     </>
   );
 };
