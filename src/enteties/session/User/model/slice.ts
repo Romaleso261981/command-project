@@ -1,16 +1,25 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
+import { USER_RULE } from '@/constants/constans';
+
 type CurrentUser = {
   phoneNumber: string;
   smsCode: string;
   displayName: string;
+  rule: 'user' | 'admin';
 };
+
+export enum Rule {
+  ADMIN = 'admin',
+  USER = 'user'
+}
 
 const initialState = {
   phoneNumber: '',
   smsCode: '',
-  displayName: ''
+  displayName: '',
+  rule: USER_RULE
 } as CurrentUser;
 
 const curentUserSlice = createSlice({

@@ -16,8 +16,10 @@ import {
 } from '@/shared/api/firebaseApi/firebaseAuthActions';
 import { githubProvider, googleProvider } from '@/shared/config/firebase/firebase';
 import errorHandler from '@/shared/helpers/errorsHandler';
+import { setLocalStorage } from '@/shared/helpers/useLocalStorage';
 
 type formTypes = {
+  user: User | null;
   stepForm: string;
   status: string;
 };
@@ -38,7 +40,6 @@ export const setUserByGithub = createAsyncThunk<
   try {
     const auth = getAuth();
     const { user } = await signInWithPopup(auth, githubProvider);
-    console.log(user);
     if (user.displayName === null) {
       return;
       //воткнуть нотифик
@@ -50,6 +51,7 @@ export const setUserByGithub = createAsyncThunk<
     const currentUserInfo = convertUserField(user.displayName);
     await setFirestoreData('users', currentUserUid, currentUserInfo);
     navigate();
+    setLocalStorage('user', user);
     return user;
   } catch (error) {
     return rejectWithValue(errorHandler(error, 'Error with Github'));
@@ -64,7 +66,7 @@ export const setUserByGoogle = createAsyncThunk<
   try {
     const auth = getAuth();
     const { user } = await signInWithPopup(auth, googleProvider);
-    console.log(user);
+    console.log('user', user);
     if (user.displayName === null) {
       return;
     }
@@ -74,6 +76,7 @@ export const setUserByGoogle = createAsyncThunk<
     }
     const currentUserInfo = convertUserField(user.displayName);
     await setFirestoreData('users', currentUserUid, currentUserInfo);
+    setLocalStorage('user', user);
     navigate();
     return user;
   } catch (error) {
@@ -138,6 +141,9 @@ export const handlerNicknameInput = createAsyncThunk<
     if (querySnapshot.empty) {
       const currentUserInfo = convertUserField(currentDisplayName);
       await setFirestoreData('users', currentUserUid, currentUserInfo);
+      const docsQuery = query(collectionRef, where('displayName', '==', currentDisplayName));
+      const querySnapshot = await getDocs(docsQuery);
+      localStorage.setItem('user', JSON.stringify(querySnapshot));
       dispatch(setCurrentStepForm('auth'));
       return;
     } else {
@@ -149,6 +155,7 @@ export const handlerNicknameInput = createAsyncThunk<
 });
 
 const initialState = {
+  user: null,
   stepForm: 'login',
   status: 'loading'
 } as formTypes;
@@ -206,6 +213,12 @@ const formType = createSlice({
 
     builder.addCase(setUserByGithub.rejected, (state) => {
       state.status = Status.ERROR;
+    });
+    builder.addCase(setUserByGoogle.fulfilled, (state, { payload }) => {
+      state.status = Status.SUCCES;
+      if (payload !== undefined) {
+        state.user = payload;
+      }
     });
   }
 });

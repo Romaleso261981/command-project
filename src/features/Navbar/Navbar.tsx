@@ -55,7 +55,7 @@ export const Navbar = () => {
             label={t('navBar.schedule')}
           />
           <NavbarLink
-            path={RoutersPaths.ADMIN}
+            path={RoutersPaths.PRODUCTS}
             icon={IconBuildingStore}
             label={t('navBar.store')}
           />

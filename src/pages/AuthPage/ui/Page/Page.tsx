@@ -7,9 +7,7 @@ import { AuthenticationForm } from '@/widgets/AuthenticationForm/index';
 
 export default function AuthPage() {
   const navigate = useNavigate();
-  const user = true;
-
-  console.log('useEffect');
+  const user = false;
 
   useEffect(() => {
     if (user) {

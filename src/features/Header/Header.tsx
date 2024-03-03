@@ -10,13 +10,13 @@ import {
   Search,
   UserInfo
 } from './ui';
+import { IconBasket } from './ui/IconBasket/IconBasket';
 
 export type HeaderProps = {
-  navbarExpanded: boolean;
-  toggleNavbar(): void;
+  toggleShowBasket(): void;
 };
 
-export function Header() {
+export function Header({ toggleShowBasket }: HeaderProps) {
   return (
     <Group className={classes.root}>
       <Group gap="xs" pl={40} pb={5} pt={5}>
@@ -25,6 +25,7 @@ export function Header() {
       </Group>
       <Group gap="xs" justify="space-between">
         <Search />
+        <IconBasket toggleShowBasket={toggleShowBasket} />
         <Messages />
         <Notification />
         <LanguagePicker type="collapsed" />

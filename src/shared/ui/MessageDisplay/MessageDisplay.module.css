@@ -1,0 +1,19 @@
+.wrapper {
+  margin: 50px auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  max-width: 80%;
+  flex-direction: column;
+}
+
+.description {
+  margin-top: 20px;
+  font-family: serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.button {
+  margin-top: 20px;
+}
