@@ -5,13 +5,11 @@ import type { UseFormReturnType } from '@mantine/form';
 import { useTranslation } from 'react-i18next';
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
-import { useNavigate } from 'react-router-dom';
 
-import { setUserByGithub, setUserByGoogle, signIn } from '@/features/Authentication/model/slice';
+import { signIn } from '@/features/Authentication/model/slice';
 import type { FC, FormFields } from '@/features/Authentication/model/types';
 import iconSteam from '@/shared/assets/steam.svg';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { RoutersPaths } from '@/shared/types/enums';
 
 import classes from './LoginForm.module.css';
 
@@ -22,14 +20,13 @@ interface LoginFormProps {
 export const LoginForm: FC<LoginFormProps> = ({ form }) => {
   const dispatch = useAppDispatch();
   const validFieldPhone = form.isValid('phoneNumber');
-  const navigate = useNavigate();
 
   const handleGithub = () => {
-    dispatch(setUserByGithub(() => navigate(RoutersPaths.ADMIN)));
+    // dispatch(setUserByGithub(() => navigate(RoutersPaths.ADMIN)));
   };
 
   const handleGoogle = () => {
-    dispatch(setUserByGoogle(() => navigate(RoutersPaths.ADMIN)));
+    // dispatch(setUserByGoogle(() => navigate(RoutersPaths.ADMIN)));
   };
 
   const handlerAuth = () => {
