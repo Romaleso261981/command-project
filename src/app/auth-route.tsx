@@ -6,7 +6,7 @@ export function AuthRoute({ redirectTo }: { redirectTo: string }) {
   //   const { loading, user } = useAuth();
   const user = {
     email: 'las@.gmail.com',
-    name: 'Roma'
+    name: 'Roma',
   };
   let loading = true;
   const location = useLocation();

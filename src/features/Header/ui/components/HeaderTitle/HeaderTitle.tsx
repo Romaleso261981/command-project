@@ -7,7 +7,7 @@ import classes from './HeaderTitle.module.css';
 
 export function HeaderTitle() {
   return (
-    <Link className={classes.root} to="/">
+    <Link className={classes.root} to='/'>
       <Image src={icon} />
     </Link>
   );

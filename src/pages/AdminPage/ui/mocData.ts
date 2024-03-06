@@ -8,7 +8,7 @@ export const data = [
     balans: '316642',
     phone: '0688889889',
     rule: 'user',
-    email: 'rob_wolf@gmail.com'
+    email: 'rob_wolf@gmail.com',
   },
   {
     id: '2',
@@ -19,7 +19,7 @@ export const data = [
     balans: '25',
     phone: '0688889889',
     rule: 'user',
-    email: 'jj@breaker.com'
+    email: 'jj@breaker.com',
   },
   {
     id: '3',
@@ -30,7 +30,7 @@ export const data = [
     balans: '5258',
     phone: '0688889889',
     rule: 'user',
-    email: 'henry@silkeater.io'
+    email: 'henry@silkeater.io',
   },
   {
     id: '4',
@@ -41,7 +41,7 @@ export const data = [
     balans: '524545353',
     phone: '0688889889',
     rule: 'user',
-    email: 'bhorsefighter@gmail.com'
+    email: 'bhorsefighter@gmail.com',
   },
   {
     id: '5',
@@ -52,6 +52,6 @@ export const data = [
     balans: '654449',
     phone: '0688889889',
     rule: 'user',
-    email: 'jeremy@foot.dev'
-  }
+    email: 'jeremy@foot.dev',
+  },
 ];

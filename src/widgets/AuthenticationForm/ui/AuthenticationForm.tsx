@@ -13,15 +13,15 @@ export const AuthenticationForm = () => {
     initialValues: {
       phoneNumber: '',
       smsCode: '',
-      nickName: ''
+      nickName: '',
     },
     validate: {
       phoneNumber: (value: string) =>
         value.length < 12 ? 'The phone number must consist of 12 characters' : null,
       smsCode: (value: string) =>
         value.length < 6 ? 'The smc code number must consist of 6 characters' : null,
-      nickName: (value: string) => (value.length < 2 ? 'Name must have at least 2 letters' : null)
-    }
+      nickName: (value: string) => (value.length < 2 ? 'Name must have at least 2 letters' : null),
+    },
   });
 
   const renderForm = (stepForm: string) => {

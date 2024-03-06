@@ -9,13 +9,13 @@ export const myTheme = createTheme({
   components: {
     ActionIcon: ActionIcon.extend({
       defaultProps: {
-        variant: 'subtle'
-      }
+        variant: 'subtle',
+      },
     }),
     Loader: Loader.extend({
       defaultProps: {
-        type: 'bars'
-      }
-    })
-  }
+        type: 'bars',
+      },
+    }),
+  },
 });

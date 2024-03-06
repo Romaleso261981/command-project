@@ -17,7 +17,7 @@ export const Env = {
   },
   isMswEnabled() {
     return this.MSW_ENABLED === 'true';
-  }
+  },
 };
 
 export default Env;

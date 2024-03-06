@@ -7,9 +7,7 @@ import { AuthenticationForm } from '@/widgets/AuthenticationForm/index';
 
 export default function AuthPage() {
   const navigate = useNavigate();
-  const user = true;
-
-  console.log('useEffect');
+  const user = false;
 
   useEffect(() => {
     if (user) {
@@ -18,7 +16,7 @@ export default function AuthPage() {
   }, [navigate, user]);
 
   return (
-    <Flex h="100%" justify={'space-around'} mt={'100px'}>
+    <Flex h='100%' justify={'space-around'} mt={'100px'}>
       <AuthenticationForm />
     </Flex>
   );

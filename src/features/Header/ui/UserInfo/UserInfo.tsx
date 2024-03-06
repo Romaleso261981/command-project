@@ -9,7 +9,7 @@ export const UserInfo = () => {
   const { t } = useTranslation();
 
   const user = {
-    id: '12'
+    id: '12',
   };
   const navigate = useNavigate();
 
@@ -24,22 +24,22 @@ export const UserInfo = () => {
   };
 
   return (
-    <Stack justify="center" gap={0}>
+    <Stack justify='center' gap={0}>
       {user ? (
         <UnstyledButton onClick={userDetail} className={styles.user}>
           <Group>
             <Avatar
-              src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png"
-              radius="xl"
+              src='https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png'
+              radius='xl'
               size={28}
             />
             <Box style={{ flex: 1 }}>
-              <Text size="sm" fw={500}>
+              <Text size='sm' fw={500}>
                 {t('header.name')}
               </Text>
               <Group>
-                <IconCoin color="#f1a708" />
-                <Text c="dimmed" size="md">
+                <IconCoin color='#f1a708' />
+                <Text c='dimmed' size='md'>
                   410
                 </Text>
               </Group>

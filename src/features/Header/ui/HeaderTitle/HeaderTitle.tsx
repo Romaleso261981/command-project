@@ -7,7 +7,7 @@ import classes from './HeaderTitle.module.css';
 
 export const HeaderTitle = () => {
   return (
-    <Link className={classes.root} to="/">
+    <Link className={classes.root} to='/'>
       <Image src={icon} />
     </Link>
   );

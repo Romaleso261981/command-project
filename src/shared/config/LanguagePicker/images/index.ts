@@ -15,5 +15,5 @@ export default {
   polish,
   ukraine,
   ukraine2,
-  ru
+  ru,
 };

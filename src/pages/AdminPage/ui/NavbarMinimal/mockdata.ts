@@ -5,7 +5,7 @@ import {
   IconGauge,
   IconHome2,
   IconSettings,
-  IconUser
+  IconUser,
 } from '@tabler/icons-react';
 
 export const mockdata = [
@@ -15,5 +15,5 @@ export const mockdata = [
   { icon: IconCalendarStats, label: 'Releases' },
   { icon: IconUser, label: 'Account' },
   { icon: IconDeviceGamepad2, label: 'Main' },
-  { icon: IconSettings, label: 'Settings' }
+  { icon: IconSettings, label: 'Settings' },
 ];

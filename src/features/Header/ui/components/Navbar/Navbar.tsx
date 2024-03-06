@@ -6,7 +6,7 @@ import {
   IconHome2,
   IconLogin,
   IconLogout,
-  IconSettings
+  IconSettings,
 } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ interface NavbarLinkProps {
 
 function NavbarLink({ icon: Icon, label, active, onClick, path }: NavbarLinkProps) {
   return (
-    <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
+    <Tooltip label={label} position='right' transitionProps={{ duration: 0 }}>
       <UnstyledButton onClick={onClick} className={classes.link} data-active={active || undefined}>
         <Link to={path}>
           <Icon style={{ width: rem(20), height: rem(20) }} stroke={1.5} />
@@ -35,17 +35,17 @@ function NavbarLink({ icon: Icon, label, active, onClick, path }: NavbarLinkProp
 export function Navbar() {
   return (
     <nav className={classes.navbar}>
-      <Stack justify="space-between" h={550} gap={20}>
+      <Stack justify='space-between' h={550} gap={20}>
         <Group>
-          <NavbarLink path="/login" icon={IconLogin} label="IconLogin" />
-          <NavbarLink path="/" icon={IconHome2} label="Home" />
-          <NavbarLink path="/admin" icon={IconDeviceDesktopAnalytics} label="Admin" />
-          <NavbarLink path="/admin/1" icon={IconFingerprint} label="Profile" />
-          <NavbarLink path="/" icon={IconGauge} label="Home" />
+          <NavbarLink path='/login' icon={IconLogin} label='IconLogin' />
+          <NavbarLink path='/' icon={IconHome2} label='Home' />
+          <NavbarLink path='/admin' icon={IconDeviceDesktopAnalytics} label='Admin' />
+          <NavbarLink path='/admin/1' icon={IconFingerprint} label='Profile' />
+          <NavbarLink path='/' icon={IconGauge} label='Home' />
         </Group>
         <Group>
-          <NavbarLink path="/" icon={IconSettings} label="Settings" />
-          <NavbarLink path="/" icon={IconLogout} label="Logout" />
+          <NavbarLink path='/' icon={IconSettings} label='Settings' />
+          <NavbarLink path='/' icon={IconLogout} label='Logout' />
         </Group>
       </Stack>
     </nav>

@@ -12,7 +12,7 @@ function UserPage() {
         <Text>{id}</Text>
       </Center>
       <Center>
-        <Link to="/">Back to main</Link>
+        <Link to='/'>Back to main</Link>
       </Center>
     </>
   );

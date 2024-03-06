@@ -8,7 +8,7 @@ import {
   Text,
   Tooltip,
   useMantineColorScheme,
-  useMantineTheme
+  useMantineTheme,
 } from '@mantine/core';
 import { IconBell } from '@tabler/icons-react';
 
@@ -24,15 +24,16 @@ export default function Notification() {
       style={{
         borderBottom: `1px solid ${
           colorScheme === 'dark' ? theme.colors.gray[7] : theme.colors.gray[3]
-        }`
-      }}>
-      <Flex gap="sm" align="center">
-        <Avatar src={n.icon} alt={n.title} variant="filled" size="sm" />
+        }`,
+      }}
+    >
+      <Flex gap='sm' align='center'>
+        <Avatar src={n.icon} alt={n.title} variant='filled' size='sm' />
         <Stack gap={1}>
-          <Text fz="sm" fw={600}>
+          <Text fz='sm' fw={600}>
             {n.title}
           </Text>
-          <Text lineClamp={2} fz="xs" c="dimmed">
+          <Text lineClamp={2} fz='xs' c='dimmed'>
             {n.message}
           </Text>
         </Stack>
@@ -40,22 +41,22 @@ export default function Notification() {
     </Menu.Item>
   ));
   return (
-    <Menu shadow="lg" width={320}>
+    <Menu shadow='lg' width={320}>
       <Menu.Target>
         <Indicator processing size={10} offset={6}>
-          <Tooltip label="Notifications">
-            <ActionIcon size="lg" title="Notifications">
+          <Tooltip label='Notifications'>
+            <ActionIcon size='lg' title='Notifications'>
               <IconBell size={ICON_SIZE} />
             </ActionIcon>
           </Tooltip>
         </Indicator>
       </Menu.Target>
       <Menu.Dropdown>
-        <Menu.Label tt="uppercase" ta="center" fw={600}>
+        <Menu.Label tt='uppercase' ta='center' fw={600}>
           {NOTIFICATIONS.length} new notifications
         </Menu.Label>
         {notifications}
-        <Menu.Item tt="uppercase" ta="center" fw={600}>
+        <Menu.Item tt='uppercase' ta='center' fw={600}>
           Show all notifications
         </Menu.Item>
       </Menu.Dropdown>

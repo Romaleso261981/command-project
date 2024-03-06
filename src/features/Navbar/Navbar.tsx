@@ -7,7 +7,7 @@ import {
   IconLogout,
   IconSettings,
   IconUser,
-  IconUsers
+  IconUsers,
 } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -26,7 +26,7 @@ interface NavbarLinkProps {
 
 function NavbarLink({ icon: Icon, label, active, onClick, path }: NavbarLinkProps) {
   return (
-    <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
+    <Tooltip label={label} position='right' transitionProps={{ duration: 0 }}>
       <UnstyledButton onClick={onClick} className={classes.link} data-active={active || undefined}>
         <Link to={path}>
           <Icon style={{ width: rem(20), height: rem(20) }} stroke={1.5} />
@@ -41,7 +41,7 @@ export const Navbar = () => {
 
   return (
     <nav className={classes.navbar}>
-      <Stack justify="space-between" h={550} gap={20}>
+      <Stack justify='space-between' h={550} gap={20}>
         <Group>
           <NavbarLink path={RoutersPaths.ADMIN} icon={IconHome2} label={t('navBar.home')} />
           <NavbarLink
@@ -55,7 +55,7 @@ export const Navbar = () => {
             label={t('navBar.schedule')}
           />
           <NavbarLink
-            path={RoutersPaths.ADMIN}
+            path={RoutersPaths.PRODUCTS}
             icon={IconBuildingStore}
             label={t('navBar.store')}
           />
