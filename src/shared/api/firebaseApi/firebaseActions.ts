@@ -1,3 +1,7 @@
+import { collection, getDocs, query, where } from 'firebase/firestore';
+
+import type { UserInfo } from '@/features/Authentication/model/types';
+
 import type { DocumentData, DocumentReference } from './models';
 import { db, deleteDoc, doc, getDoc, setDoc, updateDoc } from './models';
 
@@ -40,4 +44,21 @@ export const updateFirestoreData = async <T>(
 ): Promise<void> => {
   const docRef = doc(db, path, id);
   await updateDoc(docRef, data);
+};
+
+export const findUsersDatabase = async (
+  path: string,
+  field: string,
+  searchData: string
+): Promise<UserInfo[]> => {
+  const collectionRef = collection(db, path);
+  const docsQuery = query(collectionRef, where(field, '>=', searchData));
+  const querySnapshot = await getDocs(docsQuery);
+
+  const user: UserInfo[] = [];
+  querySnapshot.forEach((doc: DocumentData) => {
+    user.push(doc.data());
+  });
+
+  return user;
 };

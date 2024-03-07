@@ -45,5 +45,9 @@
     "update": "Обновить",
     "name": "Имя",
     "enterYourName": "Введите имя"
+  },
+  "autocomplete":{
+    "searchUser":"Найти пользователя",
+    "nothingFound":"Ничего не найдено :("
   }
 }
