@@ -73,9 +73,9 @@ export const UserSearchAutocomplete = () => {
           placeholder={t('autocomplete.searchUser')}
           value={findUser}
           onChange={onChangeInput}
-          onClick={combobox.openDropdown}
-          onFocus={combobox.openDropdown}
-          onBlur={combobox.closeDropdown}
+          onClick={() => combobox.openDropdown()}
+          onFocus={() => combobox.openDropdown()}
+          onBlur={() => combobox.closeDropdown}
           rightSection={
             findUser !== '' && (
               <CloseButton
