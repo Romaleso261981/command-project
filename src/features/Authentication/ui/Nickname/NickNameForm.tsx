@@ -1,12 +1,12 @@
-import { Button, Container, Flex, Paper, Text, TextInput } from '@mantine/core';
-import type { UseFormReturnType } from '@mantine/form';
-import { useTranslation } from 'react-i18next';
+import { Button, Container, Flex, Paper, Text, TextInput } from "@mantine/core";
+import type { UseFormReturnType } from "@mantine/form";
+import { useTranslation } from "react-i18next";
 
-import { handlerNicknameInput } from '@/features/Authentication/model/slice';
-import type { FC, FormFields } from '@/features/Authentication/model/types';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { handlerNicknameInput } from "@/features/Authentication/model/slice";
+import type { FC, FormFields } from "@/features/Authentication/model/types";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
-import classes from './NickNameForm.module.css';
+import classes from "./NickNameForm.module.css";
 
 interface NickNameFormProps {
   form: UseFormReturnType<FormFields>;
@@ -24,8 +24,8 @@ export const NickNameForm: FC<NickNameFormProps> = ({ form }) => {
   return (
     <Container size={460} my={30} ta="center">
       <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
-        <Text>{t('nickName')}</Text>
-        <TextInput required ta="left" {...form.getInputProps('nickName')} />
+        <Text>{t("nickName")}</Text>
+        <TextInput required ta="left" {...form.getInputProps("nickName")} />
         <Flex mih={50} gap="sm" justify="center" align="center" direction="column" wrap="wrap">
           <Button
             className={classes.control}
@@ -33,7 +33,7 @@ export const NickNameForm: FC<NickNameFormProps> = ({ form }) => {
             mt={20}
             id="sign-in-button"
             onClick={displayNameHandler}>
-            {t('send')}
+            {t("send")}
           </Button>
         </Flex>
       </Paper>

@@ -1,8 +1,8 @@
-import { Box, Button, Flex, Image } from '@mantine/core';
-import type { FC } from 'react';
+import { Box, Button, Flex, Image } from "@mantine/core";
+import type { FC } from "react";
 
-import s from './Basket.module.css';
-import { orderedProduct } from './mockData';
+import s from "./Basket.module.css";
+import { orderedProduct } from "./mockData";
 
 type BasketProps = {
   onShow: () => void;

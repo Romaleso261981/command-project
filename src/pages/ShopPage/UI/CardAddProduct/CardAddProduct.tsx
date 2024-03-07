@@ -7,19 +7,19 @@ import {
   SimpleGrid,
   Textarea,
   TextInput
-} from '@mantine/core';
-import type { FileWithPath } from '@mantine/dropzone';
-import { useForm } from '@mantine/form';
-// import { useId } from '@mantine/hooks';
-import type { FC } from 'react';
-import { useState } from 'react';
+} from "@mantine/core";
+import type { FileWithPath } from "@mantine/dropzone";
+import { useForm } from "@mantine/form";
+import * as dayjs from "dayjs";
+import type { FC } from "react";
+import { useState } from "react";
 
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
-import type { Product } from '../../model/slise';
-import { addProduct } from '../../model/slise';
-import s from './CardAddProduct.module.css';
-import { DropzoneComponent } from './UI/Dropzone/Dropzone';
+import type { Product } from "../../model/slise";
+import { addProduct } from "../../model/slise";
+import s from "./CardAddProduct.module.css";
+import { DropzoneComponent } from "./UI/Dropzone/Dropzone";
 
 type FormValues = {
   product: Product;
@@ -45,12 +45,12 @@ const CardAddProduct: FC<CardAddProductProps> = ({ toggleCardAddProduct }) => {
   const form = useForm<FormValues>({
     initialValues: {
       product: {
-        id: '7',
+        id: "",
         images: [],
-        imageURL: '',
-        description: '',
-        title: '',
-        brand: '',
+        imageURL: "",
+        description: "",
+        title: "",
+        brand: "",
         isRecommended: false,
         maxQuantity: 0,
         quantity: 0,
@@ -62,7 +62,7 @@ const CardAddProduct: FC<CardAddProductProps> = ({ toggleCardAddProduct }) => {
 
   const submit = (values: FormValues) => {
     values.product.images = files;
-    // values.product.id = useId();
+    values.product.id = dayjs().toString();
     values.product.dateAdded = new Date().getTime();
     dispatch(addProduct(values.product));
     form.reset();
@@ -75,26 +75,26 @@ const CardAddProduct: FC<CardAddProductProps> = ({ toggleCardAddProduct }) => {
           <TextInput
             label="Name Product"
             placeholder="Name Product"
-            {...form.getInputProps('product.firstName')}
+            {...form.getInputProps("product.firstName")}
           />
 
-          <Textarea size="lg" label="Description" {...form.getInputProps('product.description')} />
+          <Textarea size="lg" label="Description" {...form.getInputProps("product.description")} />
           <Group>
             <NumberInput
               size="xs"
               label="MaxQuantity"
-              {...form.getInputProps('product.maxQuantity')}
+              {...form.getInputProps("product.maxQuantity")}
             />
-            <NumberInput size="xs" label="Quantity" {...form.getInputProps('product.quantity')} />
-            <NumberInput size="xs" label="Price" {...form.getInputProps('product.price')} />
+            <NumberInput size="xs" label="Quantity" {...form.getInputProps("product.quantity")} />
+            <NumberInput size="xs" label="Price" {...form.getInputProps("product.price")} />
             <TextInput
-              {...form.getInputProps('product.imageURL')}
+              {...form.getInputProps("product.imageURL")}
               label="ImageURL"
               placeholder="ImageURL"
             />
           </Group>
           <DropzoneComponent onDrop={setFiles} />
-          <SimpleGrid cols={{ base: 1, sm: 4 }} mt={previews.length > 0 ? 'xl' : 0}>
+          <SimpleGrid cols={{ base: 1, sm: 4 }} mt={previews.length > 0 ? "xl" : 0}>
             {previews}
           </SimpleGrid>
           <Group mt={20} display="flex" justify="space-around">

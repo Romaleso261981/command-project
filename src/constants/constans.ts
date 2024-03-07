@@ -1,1 +1,1 @@
-export const USER_RULE = 'admin';
+export const USER_RULE = "admin";

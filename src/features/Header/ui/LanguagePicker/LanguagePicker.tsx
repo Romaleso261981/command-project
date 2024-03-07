@@ -1,16 +1,16 @@
-import { Group, Image, Menu, UnstyledButton } from '@mantine/core';
-import { IconChevronDown } from '@tabler/icons-react';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Group, Image, Menu, UnstyledButton } from "@mantine/core";
+import { IconChevronDown } from "@tabler/icons-react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
-import { LanguagePickerData } from '@/shared/config/LanguagePicker/LanguagePicker';
+import { LanguagePickerData } from "@/shared/config/LanguagePicker/LanguagePicker";
 
-import classes from './LanguagePicker.module.css';
+import classes from "./LanguagePicker.module.css";
 
 type LanPickerProps = { label: string; image: string };
 
 type LanguagePickerProps = {
-  type: 'collapsed' | 'expanded';
+  type: "collapsed" | "expanded";
 };
 
 export const LanguagePicker = ({ type }: LanguagePickerProps) => {
@@ -37,9 +37,9 @@ export const LanguagePicker = ({ type }: LanguagePickerProps) => {
         <UnstyledButton className={classes.control}>
           <Group gap="xs">
             <Image src={selected.image} width={22} height={22} alt="flag" />
-            {type === 'expanded' && <span className={classes.label}>{selected.label}</span>}
+            {type === "expanded" && <span className={classes.label}>{selected.label}</span>}
           </Group>
-          {type === 'expanded' && (
+          {type === "expanded" && (
             <IconChevronDown size="1rem" className={classes.icon} stroke={1.5} />
           )}
         </UnstyledButton>

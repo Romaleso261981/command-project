@@ -1,12 +1,12 @@
-import { Avatar, Group, rem, Stack, Text, UnstyledButton } from '@mantine/core';
-import { IconChevronRight, IconCoin, IconLogin } from '@tabler/icons-react';
-import { useNavigate } from 'react-router-dom';
+import { Avatar, Group, rem, Stack, Text, UnstyledButton } from "@mantine/core";
+import { IconChevronRight, IconCoin, IconLogin } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
-import styles from './UserInfo.module.css';
+import styles from "./UserInfo.module.css";
 
 export const UserInfo = () => {
   const user = {
-    id: 'kjdfvkjndfnk'
+    id: "kjdfvkjndfnk"
   };
   // const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -19,17 +19,17 @@ export const UserInfo = () => {
   // }, []);
 
   const hendlelogOut = () => {
-    localStorage.removeItem('user');
-    navigate('/');
+    localStorage.removeItem("user");
+    navigate("/");
   };
   const hendlelogin = () => {
     localStorage.setItem(
-      'user',
+      "user",
       JSON.stringify({
-        id: 'kjdfvkjndfnk'
+        id: "kjdfvkjndfnk"
       })
     );
-    navigate('/admin');
+    navigate("/admin");
   };
 
   return (

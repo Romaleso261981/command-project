@@ -1,7 +1,7 @@
-import { ActionIcon, Indicator, Menu, Tooltip } from '@mantine/core';
-import { IconBell } from '@tabler/icons-react';
+import { ActionIcon, Indicator, Menu, Tooltip } from "@mantine/core";
+import { IconBell } from "@tabler/icons-react";
 
-import { NOTIFICATIONS } from './data';
+import { NOTIFICATIONS } from "./data";
 
 export const Notification = () => {
   return (
@@ -10,7 +10,7 @@ export const Notification = () => {
         <Indicator processing size={10} offset={6}>
           <Tooltip label="Notifications">
             <ActionIcon size="lg" radius={6} bg="transparent" title="Notifications">
-              <IconBell size={25} color={'black'} />
+              <IconBell size={25} color={"black"} />
             </ActionIcon>
           </Tooltip>
         </Indicator>
