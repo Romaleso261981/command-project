@@ -5,12 +5,19 @@ type CurrentUser = {
   phoneNumber: string;
   smsCode: string;
   displayName: string;
+  isAuth: boolean;
+  accessToken: string;
+  refreshToken: string;
 };
 
 const initialState = {
   phoneNumber: '',
   smsCode: '',
-  displayName: ''
+  displayName: '',
+  isAuth: false,
+  accessToken: '',
+  refreshToken: '',
+  expiresIn: ''
 } as CurrentUser;
 
 const curentUserSlice = createSlice({

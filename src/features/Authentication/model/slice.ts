@@ -99,7 +99,8 @@ export const handlerVerifyCode = createAsyncThunk<
   { rejectValue: string; state: RootState }
 >('firestore/handlerVerifyCode', async (smsCode: string, { rejectWithValue, dispatch }) => {
   try {
-    await recaptchaObj.confirm(smsCode);
+    const confirmSms = await recaptchaObj.confirm(smsCode);
+    console.log(confirmSms);
     const currentUserUid = getAuth().currentUser?.uid;
     if (!currentUserUid) {
       return;
