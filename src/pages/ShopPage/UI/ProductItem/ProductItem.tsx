@@ -1,10 +1,10 @@
-import { Box, Button, Flex, Image, Text, Title } from "@mantine/core";
-import type { FC } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router";
+import { Box, Button, Flex, Image, Text, Title } from '@mantine/core';
+import type { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router';
 
-import type { Product } from "../../type";
-import s from "./ProductItem.module.css";
+import type { Product } from '../../type';
+import s from './ProductItem.module.css';
 
 type ProductItemProps = {
   product: Product;
@@ -32,17 +32,17 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
           <Title className={s.title}>{product.title}</Title>
           <Flex>
             <Title c='indigo' size={35} mr={10}>
-              {t("shop.brand")}
+              {t('shop.brand')}
             </Title>
             <Title className={s.brandTitle}>{product.brand}</Title>
           </Flex>
           <Text className={s.description}>{product.description}</Text>
-          <Text className={s.price}>{`${t("shop.cost")} ${product.price} ${t("shop.union")}`}</Text>
+          <Text className={s.price}>{`${t('shop.cost')} ${product.price} ${t('shop.union')}`}</Text>
         </Flex>
       </Flex>
       <Flex mt={15} gap={20} pb={10}>
-        <Button>{t("shop.inBascet")}</Button>
-        <Button>{t("shop.оrder")}</Button>
+        <Button>{t('shop.inBascet')}</Button>
+        <Button>{t('shop.оrder')}</Button>
       </Flex>
     </Flex>
   );

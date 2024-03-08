@@ -12,19 +12,19 @@ import {
   rem,
   Text,
   useMantineTheme,
-} from "@mantine/core";
-import { IconBookmark, IconHeart, IconShare } from "@tabler/icons-react";
-import type { FC } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+} from '@mantine/core';
+import { IconBookmark, IconHeart, IconShare } from '@tabler/icons-react';
+import type { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
-import { Rule } from "@/enteties/session/User/model/slice";
-import type { Product } from "@/pages/ShopPage/model/slise";
-import { removeProductById } from "@/pages/ShopPage/model/slise";
-import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
+import { Rule } from '@/enteties/session/User/model/slice';
+import type { Product } from '@/pages/ShopPage/model/slise';
+import { removeProductById } from '@/pages/ShopPage/model/slise';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
 
-import classes from "./ArticleCard.module.css";
+import classes from './ArticleCard.module.css';
 
 type ProductItemProps = {
   product: Product;
@@ -33,7 +33,7 @@ type ProductItemProps = {
 const ArticleCard: FC<ProductItemProps> = ({ product }) => {
   const isAdmin = Rule.ADMIN === useAppSelector((state) => state.curentUserSlice.rule);
 
-  const linkProps = { target: "_blank", rel: "noopener noreferrer" };
+  const linkProps = { target: '_blank', rel: 'noopener noreferrer' };
   const theme = useMantineTheme();
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -61,7 +61,7 @@ const ArticleCard: FC<ProductItemProps> = ({ product }) => {
         <Badge
           className={classes.rating}
           variant='gradient'
-          gradient={{ from: "yellow", to: "red" }}
+          gradient={{ from: 'yellow', to: 'red' }}
         >
           {product.price.toPrecision()}
         </Badge>
@@ -75,15 +75,15 @@ const ArticleCard: FC<ProductItemProps> = ({ product }) => {
         </Text>
       </Box>
       <Flex mt={15} gap={20} pb={10}>
-        <Button>{t("shop.inBascet")}</Button>
-        <Button>{t("shop.оrder")}</Button>
+        <Button>{t('shop.inBascet')}</Button>
+        <Button>{t('shop.оrder')}</Button>
         {isAdmin && (
           <Button
             onClick={() => {
               removeProduct(product.id);
             }}
           >
-            {t("shop.remove")}
+            {t('shop.remove')}
           </Button>
         )}
       </Flex>

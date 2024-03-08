@@ -1,7 +1,7 @@
-import { Button, Center, Flex } from "@mantine/core";
+import { Button, Center, Flex } from '@mantine/core';
 
-import { FormAddClient, TableSelection } from "./ui";
-import { data } from "./ui/mocData";
+import { FormAddClient, TableSelection } from './ui';
+import { data } from './ui/mocData';
 
 export default function AdminPage() {
   return (

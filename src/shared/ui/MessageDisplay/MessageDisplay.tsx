@@ -1,7 +1,7 @@
-import { Button, Flex, Text, Title } from "@mantine/core";
-import type { FC } from "react";
+import { Button, Flex, Text, Title } from '@mantine/core';
+import type { FC } from 'react';
 
-import s from "./MessageDisplay.module.css";
+import s from './MessageDisplay.module.css';
 
 type MessageDisplayProps = {
   message: string;
@@ -16,7 +16,7 @@ const MessageDisplay: FC<MessageDisplayProps> = ({ message, description, buttonL
       {description && <Text className={s.description}>{description}</Text>}
       {action && (
         <Button className={s.button} onClick={action} type='button'>
-          {buttonLabel || "Okay"}
+          {buttonLabel || 'Okay'}
         </Button>
       )}
     </Flex>

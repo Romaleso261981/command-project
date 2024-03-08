@@ -1,7 +1,7 @@
-import { Autocomplete, rem } from "@mantine/core";
-import { IconSearch } from "@tabler/icons-react";
+import { Autocomplete, rem } from '@mantine/core';
+import { IconSearch } from '@tabler/icons-react';
 
-import classes from "./Search.module.css";
+import classes from './Search.module.css';
 
 function Search() {
   return (

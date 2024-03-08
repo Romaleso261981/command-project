@@ -9,10 +9,10 @@ import {
   Tooltip,
   useMantineColorScheme,
   useMantineTheme,
-} from "@mantine/core";
-import { IconBell } from "@tabler/icons-react";
+} from '@mantine/core';
+import { IconBell } from '@tabler/icons-react';
 
-import { ICON_SIZE, NOTIFICATIONS } from "./data";
+import { ICON_SIZE, NOTIFICATIONS } from './data';
 
 export default function Notification() {
   const { colorScheme } = useMantineColorScheme();
@@ -23,7 +23,7 @@ export default function Notification() {
       key={n.id}
       style={{
         borderBottom: `1px solid ${
-          colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3]
+          colorScheme === 'dark' ? theme.colors.gray[7] : theme.colors.gray[3]
         }`,
       }}
     >

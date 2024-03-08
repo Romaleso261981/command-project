@@ -1,4 +1,4 @@
-import type { Product } from "./slise";
+import type { Product } from './slise';
 
 export type ProductsTypes = {
   products: Product[];

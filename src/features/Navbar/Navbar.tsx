@@ -1,4 +1,4 @@
-import { Group, rem, Stack, Tooltip, UnstyledButton } from "@mantine/core";
+import { Group, rem, Stack, Tooltip, UnstyledButton } from '@mantine/core';
 import {
   IconBuildingStore,
   IconCalendarClock,
@@ -8,13 +8,13 @@ import {
   IconSettings,
   IconUser,
   IconUsers,
-} from "@tabler/icons-react";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+} from '@tabler/icons-react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
-import { RoutersPaths } from "@/shared/types/enums";
+import { RoutersPaths } from '@/shared/types/enums';
 
-import classes from "./Navbar.module.css";
+import classes from './Navbar.module.css';
 
 interface NavbarLinkProps {
   icon: typeof IconHome2;
@@ -43,28 +43,28 @@ export const Navbar = () => {
     <nav className={classes.navbar}>
       <Stack justify='space-between' h={550} gap={20}>
         <Group>
-          <NavbarLink path={RoutersPaths.ADMIN} icon={IconHome2} label={t("navBar.home")} />
+          <NavbarLink path={RoutersPaths.ADMIN} icon={IconHome2} label={t('navBar.home')} />
           <NavbarLink
             path={RoutersPaths.ADMIN}
             icon={IconDeviceGamepad2}
-            label={t("navBar.game")}
+            label={t('navBar.game')}
           />
           <NavbarLink
             path={RoutersPaths.LOGIN}
             icon={IconCalendarClock}
-            label={t("navBar.schedule")}
+            label={t('navBar.schedule')}
           />
           <NavbarLink
             path={RoutersPaths.PRODUCTS}
             icon={IconBuildingStore}
-            label={t("navBar.store")}
+            label={t('navBar.store')}
           />
-          <NavbarLink path={RoutersPaths.MAIN} icon={IconUser} label={t("navBar.user")} />
-          <NavbarLink path={RoutersPaths.ADMIN} icon={IconUsers} label={t("navBar.users")} />
+          <NavbarLink path={RoutersPaths.MAIN} icon={IconUser} label={t('navBar.user')} />
+          <NavbarLink path={RoutersPaths.ADMIN} icon={IconUsers} label={t('navBar.users')} />
         </Group>
         <Group>
-          <NavbarLink path={RoutersPaths.ADMIN} icon={IconSettings} label={t("navBar.settings")} />
-          <NavbarLink path={RoutersPaths.ADMIN} icon={IconLogout} label={t("navBar.logout")} />
+          <NavbarLink path={RoutersPaths.ADMIN} icon={IconSettings} label={t('navBar.settings')} />
+          <NavbarLink path={RoutersPaths.ADMIN} icon={IconLogout} label={t('navBar.logout')} />
         </Group>
       </Stack>
     </nav>

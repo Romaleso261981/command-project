@@ -1,14 +1,14 @@
-import { ActionIcon, Avatar, Checkbox, Group, rem, ScrollArea, Table, Text } from "@mantine/core";
-import { IconFileCheck } from "@tabler/icons-react";
-import cx from "clsx";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { ActionIcon, Avatar, Checkbox, Group, rem, ScrollArea, Table, Text } from '@mantine/core';
+import { IconFileCheck } from '@tabler/icons-react';
+import cx from 'clsx';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { data } from "../mocData";
-import classes from "./TableSelection.module.css";
+import { data } from '../mocData';
+import classes from './TableSelection.module.css';
 
 export function TableSelection() {
-  const [selection, setSelection] = useState(["1"]);
+  const [selection, setSelection] = useState(['1']);
 
   const navigate = useNavigate();
   const toggleRow = (id: string) =>

@@ -1,6 +1,6 @@
-import { Burger, Group } from "@mantine/core";
+import { Burger, Group } from '@mantine/core';
 
-import classes from "./Header.module.css";
+import classes from './Header.module.css';
 import {
   ColorSwitch,
   HeaderTitle,
@@ -9,8 +9,8 @@ import {
   Notification,
   Search,
   UserInfo,
-} from "./ui";
-import { IconBasket } from "./ui/IconBasket/IconBasket";
+} from './ui';
+import { IconBasket } from './ui/IconBasket/IconBasket';
 
 export type HeaderProps = {
   toggleShowBasket(): void;

@@ -1,6 +1,6 @@
-import type { FC, ReactNode } from "react";
+import type { FC, ReactNode } from 'react';
 
-import s from "./Badge.module.css";
+import s from './Badge.module.css';
 
 type BadgeProps = {
   count: number;

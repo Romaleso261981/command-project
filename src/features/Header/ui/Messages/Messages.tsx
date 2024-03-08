@@ -9,10 +9,10 @@ import {
   Tooltip,
   useMantineColorScheme,
   useMantineTheme,
-} from "@mantine/core";
-import { IconMessageCircle } from "@tabler/icons-react";
+} from '@mantine/core';
+import { IconMessageCircle } from '@tabler/icons-react';
 
-import { MESSAGES } from "./data";
+import { MESSAGES } from './data';
 
 export const Messages = () => {
   const { colorScheme } = useMantineColorScheme();
@@ -22,7 +22,7 @@ export const Messages = () => {
       key={m.id}
       style={{
         borderBottom: `1px solid ${
-          colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3]
+          colorScheme === 'dark' ? theme.colors.gray[7] : theme.colors.gray[3]
         }`,
       }}
     >
@@ -54,7 +54,7 @@ export const Messages = () => {
         <Indicator processing size={10} offset={6}>
           <Tooltip label='Messages'>
             <ActionIcon size='lg' radius={6} bg='transparent' title='Nessages'>
-              <IconMessageCircle size={25} color={"black"} />
+              <IconMessageCircle size={25} color={'black'} />
             </ActionIcon>
           </Tooltip>
         </Indicator>

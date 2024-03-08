@@ -1,7 +1,7 @@
-import { Center, Text, Title } from "@mantine/core";
-import { Link, useParams } from "react-router-dom";
+import { Center, Text, Title } from '@mantine/core';
+import { Link, useParams } from 'react-router-dom';
 
-import styles from "./ProfilePage.module.css";
+import styles from './ProfilePage.module.css';
 
 function ProfilePage() {
   const { id } = useParams();
