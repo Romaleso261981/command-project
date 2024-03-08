@@ -11,7 +11,7 @@ import {
   Image,
   rem,
   Text,
-  useMantineTheme
+  useMantineTheme,
 } from "@mantine/core";
 import { IconBookmark, IconHeart, IconShare } from "@tabler/icons-react";
 import type { FC } from "react";
@@ -52,7 +52,7 @@ const ArticleCard: FC<ProductItemProps> = ({ product }) => {
   };
 
   return (
-    <Card withBorder radius="md" className={classes.card}>
+    <Card withBorder radius='md' className={classes.card}>
       <Box onClick={onClickItem}>
         <Card.Section>
           <Image src={product.imageURL} height={550} />
@@ -60,16 +60,17 @@ const ArticleCard: FC<ProductItemProps> = ({ product }) => {
 
         <Badge
           className={classes.rating}
-          variant="gradient"
-          gradient={{ from: "yellow", to: "red" }}>
+          variant='gradient'
+          gradient={{ from: "yellow", to: "red" }}
+        >
           {product.price.toPrecision()}
         </Badge>
 
-        <Text className={classes.title} fw={500} component="a" {...linkProps}>
+        <Text className={classes.title} fw={500} component='a' {...linkProps}>
           {product.title}
         </Text>
 
-        <Text fz="sm" c="dimmed" lineClamp={4}>
+        <Text fz='sm' c='dimmed' lineClamp={4}>
           {product.description}
         </Text>
       </Box>
@@ -80,20 +81,21 @@ const ArticleCard: FC<ProductItemProps> = ({ product }) => {
           <Button
             onClick={() => {
               removeProduct(product.id);
-            }}>
+            }}
+          >
             {t("shop.remove")}
           </Button>
         )}
       </Flex>
-      <Group justify="space-between" className={classes.footer}>
+      <Group justify='space-between' className={classes.footer}>
         <Center>
           <Avatar
-            src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png"
+            src='https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png'
             size={24}
-            radius="xl"
-            mr="xs"
+            radius='xl'
+            mr='xs'
           />
-          <Text fz="sm" inline>
+          <Text fz='sm' inline>
             Bill Wormeater
           </Text>
         </Center>

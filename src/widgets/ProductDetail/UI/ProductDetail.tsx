@@ -9,7 +9,7 @@ import {
   rem,
   Text,
   Title,
-  useMantineTheme
+  useMantineTheme,
 } from "@mantine/core";
 import { IconBookmark, IconHeart, IconShare } from "@tabler/icons-react";
 import { useTranslation } from "react-i18next";
@@ -28,11 +28,11 @@ const ProductDetail = () => {
   return (
     <Flex className={s.cardWrapper}>
       <Flex className={s.descriptionWrapper}>
-        <Flex display="flex" justify="space-between" direction="column">
-          <Flex display="flex" justify="space-between" direction="column">
+        <Flex display='flex' justify='space-between' direction='column'>
+          <Flex display='flex' justify='space-between' direction='column'>
             <Title>{product?.title}</Title>
             <Button>
-              <Link to="/products">{t("shop.inshop")}</Link>
+              <Link to='/products'>{t("shop.inshop")}</Link>
             </Button>
           </Flex>
         </Flex>
@@ -41,15 +41,15 @@ const ProductDetail = () => {
             <Button>{t("shop.inBascet")}</Button>
             <Button>{t("shop.оrder")}</Button>
           </Group>
-          <Group justify="space-between" className={s.footer}>
+          <Group justify='space-between' className={s.footer}>
             <Center>
               <Avatar
-                src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png"
+                src='https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png'
                 size={24}
-                radius="xl"
-                mr="xs"
+                radius='xl'
+                mr='xs'
               />
-              <Text fz="sm" inline>
+              <Text fz='sm' inline>
                 Bill Wormeater
               </Text>
             </Center>

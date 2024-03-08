@@ -12,7 +12,7 @@ function ProfilePage() {
         <Text>{id}</Text>
       </Center>
       <Center>
-        <Link to="/admin">Back to admin</Link>
+        <Link to='/admin'>Back to admin</Link>
       </Center>
     </>
   );

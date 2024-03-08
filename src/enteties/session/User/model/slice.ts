@@ -12,14 +12,14 @@ type CurrentUser = {
 
 export enum Rule {
   ADMIN = "admin",
-  USER = "user"
+  USER = "user",
 }
 
 const initialState = {
   phoneNumber: "",
   smsCode: "",
   displayName: "",
-  rule: USER_RULE
+  rule: USER_RULE,
 } as CurrentUser;
 
 const curentUserSlice = createSlice({
@@ -36,8 +36,8 @@ const curentUserSlice = createSlice({
 
     setDisplayName(state, action: PayloadAction<string>) {
       state.displayName = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const { setPhoneNumber, setSmsCode, setDisplayName } = curentUserSlice.actions;

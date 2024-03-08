@@ -6,7 +6,7 @@ const errorHandler = (error: unknown, title: string): string => {
     id: "error-notifications",
     title: title,
     message: error as string,
-    color
+    color,
   });
 };
 

@@ -6,7 +6,7 @@ import {
   NumberInput,
   SimpleGrid,
   Textarea,
-  TextInput
+  TextInput,
 } from "@mantine/core";
 import type { FileWithPath } from "@mantine/dropzone";
 import { useForm } from "@mantine/form";
@@ -55,9 +55,9 @@ const CardAddProduct: FC<CardAddProductProps> = ({ toggleCardAddProduct }) => {
         maxQuantity: 0,
         quantity: 0,
         price: 0,
-        dateAdded: 0
-      }
-    }
+        dateAdded: 0,
+      },
+    },
   });
 
   const submit = (values: FormValues) => {
@@ -71,34 +71,34 @@ const CardAddProduct: FC<CardAddProductProps> = ({ toggleCardAddProduct }) => {
   return (
     <Flex className={s.cardWrapper}>
       <form onSubmit={form.onSubmit((values) => submit(values))}>
-        <Flex p={20} direction="column" gap={10}>
+        <Flex p={20} direction='column' gap={10}>
           <TextInput
-            label="Name Product"
-            placeholder="Name Product"
+            label='Name Product'
+            placeholder='Name Product'
             {...form.getInputProps("product.firstName")}
           />
 
-          <Textarea size="lg" label="Description" {...form.getInputProps("product.description")} />
+          <Textarea size='lg' label='Description' {...form.getInputProps("product.description")} />
           <Group>
             <NumberInput
-              size="xs"
-              label="MaxQuantity"
+              size='xs'
+              label='MaxQuantity'
               {...form.getInputProps("product.maxQuantity")}
             />
-            <NumberInput size="xs" label="Quantity" {...form.getInputProps("product.quantity")} />
-            <NumberInput size="xs" label="Price" {...form.getInputProps("product.price")} />
+            <NumberInput size='xs' label='Quantity' {...form.getInputProps("product.quantity")} />
+            <NumberInput size='xs' label='Price' {...form.getInputProps("product.price")} />
             <TextInput
               {...form.getInputProps("product.imageURL")}
-              label="ImageURL"
-              placeholder="ImageURL"
+              label='ImageURL'
+              placeholder='ImageURL'
             />
           </Group>
           <DropzoneComponent onDrop={setFiles} />
           <SimpleGrid cols={{ base: 1, sm: 4 }} mt={previews.length > 0 ? "xl" : 0}>
             {previews}
           </SimpleGrid>
-          <Group mt={20} display="flex" justify="space-around">
-            <Button type="submit">Добавить</Button>
+          <Group mt={20} display='flex' justify='space-around'>
+            <Button type='submit'>Добавить</Button>
             <Button onClick={toggleCardAddProduct}>Закрыть</Button>
           </Group>
         </Flex>

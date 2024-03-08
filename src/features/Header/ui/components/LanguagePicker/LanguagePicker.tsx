@@ -11,7 +11,7 @@ import type { LanguagePickerProps, LanPickerProps } from "./types";
 
 const data = [
   { label: "en", image: images.english },
-  { label: "ru", image: images.ru }
+  { label: "ru", image: images.ru },
 ];
 
 export const LanguagePicker = ({ type }: LanguagePickerProps) => {
@@ -26,23 +26,24 @@ export const LanguagePicker = ({ type }: LanguagePickerProps) => {
 
   const items = data.map((item) => (
     <Menu.Item
-      leftSection={<Image src={item.image} width={18} height={18} alt="flag" />}
+      leftSection={<Image src={item.image} width={18} height={18} alt='flag' />}
       onClick={() => changeLanguage(item)}
-      key={item.label}>
+      key={item.label}
+    >
       {item.label}
     </Menu.Item>
   ));
 
   return (
-    <Menu radius="sm" withinPortal width={200}>
+    <Menu radius='sm' withinPortal width={200}>
       <Menu.Target>
         <UnstyledButton className={classes.control}>
-          <Group gap="xs">
-            <Image src={selected.image} width={22} height={22} alt="flag" />
+          <Group gap='xs'>
+            <Image src={selected.image} width={22} height={22} alt='flag' />
             {type === "expanded" && <span className={classes.label}>{selected.label}</span>}
           </Group>
           {type === "expanded" && (
-            <IconChevronDown size="1rem" className={classes.icon} stroke={1.5} />
+            <IconChevronDown size='1rem' className={classes.icon} stroke={1.5} />
           )}
         </UnstyledButton>
       </Menu.Target>

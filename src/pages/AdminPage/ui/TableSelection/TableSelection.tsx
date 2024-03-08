@@ -13,7 +13,7 @@ export function TableSelection() {
   const navigate = useNavigate();
   const toggleRow = (id: string) =>
     setSelection((current) =>
-      current.includes(id) ? current.filter((item) => item !== id) : [...current, id]
+      current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
     );
   const toggleAll = () =>
     setSelection((current) => (current.length === data.length ? [] : data.map((item) => item.id)));
@@ -29,14 +29,15 @@ export function TableSelection() {
           userDetail(item.id);
         }}
         key={item.id}
-        className={cx({ [classes.rowSelected]: selected })}>
+        className={cx({ [classes.rowSelected]: selected })}
+      >
         <Table.Td>
           <Checkbox checked={selection.includes(item.id)} onChange={() => toggleRow(item.id)} />
         </Table.Td>
         <Table.Td>
-          <Group gap="sm">
+          <Group gap='sm'>
             <Avatar size={26} src={item.avatar} radius={26} />
-            <Text size="sm" fw={500}>
+            <Text size='sm' fw={500}>
               {item.name}
             </Text>
           </Group>
@@ -45,7 +46,7 @@ export function TableSelection() {
         <Table.Td>{item.nickName}</Table.Td>
         <Table.Td>{item.phone}</Table.Td>
         <Table.Td>{item.balans}</Table.Td>
-        <ActionIcon variant="subtle" color="gray">
+        <ActionIcon variant='subtle' color='gray'>
           <IconFileCheck
             onClick={() => userDetail(item.id)}
             style={{ width: rem(16), height: rem(16) }}
@@ -58,7 +59,7 @@ export function TableSelection() {
 
   return (
     <ScrollArea>
-      <Table className={classes.tableWrapper} verticalSpacing="md">
+      <Table className={classes.tableWrapper} verticalSpacing='md'>
         <Table.Thead>
           <Table.Tr>
             <Table.Th style={{ width: rem(40) }}>

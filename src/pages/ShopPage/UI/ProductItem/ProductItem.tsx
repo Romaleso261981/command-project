@@ -24,14 +24,14 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
 
   return (
     <Flex className={s.cardWrapper}>
-      <Flex display="flex" direction="column" onClick={onClickItem}>
-        <Box w="100%" h="50%">
+      <Flex display='flex' direction='column' onClick={onClickItem}>
+        <Box w='100%' h='50%'>
           <Image src={product.image} alt={product.title} />
         </Box>
         <Flex className={s.descriptionWrapper}>
           <Title className={s.title}>{product.title}</Title>
           <Flex>
-            <Title c="indigo" size={35} mr={10}>
+            <Title c='indigo' size={35} mr={10}>
               {t("shop.brand")}
             </Title>
             <Title className={s.brandTitle}>{product.brand}</Title>

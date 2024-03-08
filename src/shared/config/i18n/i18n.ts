@@ -16,17 +16,17 @@ i18n
     debug: false,
 
     interpolation: {
-      escapeValue: false
+      escapeValue: false,
     },
 
     resources: {
       en: {
-        translation: enTranslation
+        translation: enTranslation,
       },
       ru: {
-        translation: ruTranslation
-      }
-    }
+        translation: ruTranslation,
+      },
+    },
   });
 
 export default i18n;

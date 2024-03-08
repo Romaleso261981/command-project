@@ -15,7 +15,7 @@ const MessageDisplay: FC<MessageDisplayProps> = ({ message, description, buttonL
       <Title className={s.title}>{message}</Title>
       {description && <Text className={s.description}>{description}</Text>}
       {action && (
-        <Button className={s.button} onClick={action} type="button">
+        <Button className={s.button} onClick={action} type='button'>
           {buttonLabel || "Okay"}
         </Button>
       )}

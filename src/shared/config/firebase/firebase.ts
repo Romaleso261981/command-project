@@ -20,7 +20,7 @@ export const firebaseConfig = {
   projectId: "new-spa-b84ea",
   storageBucket: "yourstoragebucket.appspot.com",
   messagingSenderId: "326537037114",
-  appId: "1:326537037114:web:7b126f6bf625fe0b7dfc03"
+  appId: "1:326537037114:web:7b126f6bf625fe0b7dfc03",
 };
 
 const app = initializeApp(firebaseConfig);

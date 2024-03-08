@@ -34,10 +34,10 @@ const ShopPage = () => {
     getAllData();
   }, []);
   return (
-    <Card pt={50} pl={50} pos="relative">
+    <Card pt={50} pl={50} pos='relative'>
       {isShowCardAddProduct && <CardAddProduct toggleCardAddProduct={toggleCardAddProduct} />}
       <CardSection>
-        <Flex display="flex" direction="row" pl={100} justify="flex-start">
+        <Flex display='flex' direction='row' pl={100} justify='flex-start'>
           {isAdmin && <Button onClick={toggleCardAddProduct}>{t("shop.addProd")}</Button>}
           <Title ml={300}>{t("shop.store")}</Title>
         </Flex>

@@ -16,7 +16,7 @@ export default function AuthPage() {
   }, [navigate, user]);
 
   return (
-    <Flex h="100%" justify={"space-around"} mt={"100px"}>
+    <Flex h='100%' justify={"space-around"} mt={"100px"}>
       <AuthenticationForm />
     </Flex>
   );

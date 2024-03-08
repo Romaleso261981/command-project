@@ -8,7 +8,7 @@ import {
   Messages,
   Notification,
   Search,
-  UserInfo
+  UserInfo,
 } from "./ui";
 import { IconBasket } from "./ui/IconBasket/IconBasket";
 
@@ -19,16 +19,16 @@ export type HeaderProps = {
 export function Header({ toggleShowBasket }: HeaderProps) {
   return (
     <Group className={classes.root}>
-      <Group gap="xs" pl={40} pb={5} pt={5}>
-        <Burger aria-label="Show menu" hiddenFrom="sm" size="sm" />
+      <Group gap='xs' pl={40} pb={5} pt={5}>
+        <Burger aria-label='Show menu' hiddenFrom='sm' size='sm' />
         <HeaderTitle />
       </Group>
-      <Group gap="xs" justify="space-between">
+      <Group gap='xs' justify='space-between'>
         <Search />
         <IconBasket toggleShowBasket={toggleShowBasket} />
         <Messages />
         <Notification />
-        <LanguagePicker type="collapsed" />
+        <LanguagePicker type='collapsed' />
         <ColorSwitch />
         <UserInfo />
       </Group>

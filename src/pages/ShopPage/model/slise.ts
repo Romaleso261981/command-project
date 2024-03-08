@@ -106,7 +106,7 @@ const initialState = {
   basket: [],
   status: false,
   isLoading: false,
-  isFetching: false
+  isFetching: false,
 } as ProductsTypes;
 
 const productsSlise = createSlice({
@@ -145,7 +145,7 @@ const productsSlise = createSlice({
         item.id === payload.id;
       });
     });
-  }
+  },
 });
 
 export default productsSlise.reducer;

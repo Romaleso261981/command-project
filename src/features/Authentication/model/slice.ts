@@ -12,7 +12,7 @@ import {
   convertUserField,
   getAuth,
   getDb,
-  setupRecaptcha
+  setupRecaptcha,
 } from "@/shared/api/firebaseApi/firebaseAuthActions";
 import { githubProvider, googleProvider } from "@/shared/config/firebase/firebase";
 import errorHandler from "@/shared/helpers/errorsHandler";
@@ -27,7 +27,7 @@ type formTypes = {
 enum Status {
   LOADING = "loading",
   SUCCES = "succes",
-  ERROR = "error"
+  ERROR = "error",
 }
 
 let recaptchaObj: ConfirmationResult;
@@ -93,7 +93,7 @@ export const signIn = createAsyncThunk<void, string, { rejectValue: string; stat
     } catch (error) {
       return rejectWithValue(errorHandler(error, "signIn Error"));
     }
-  }
+  },
 );
 
 export const handlerVerifyCode = createAsyncThunk<
@@ -157,7 +157,7 @@ export const handlerNicknameInput = createAsyncThunk<
 const initialState = {
   user: null,
   stepForm: "login",
-  status: "loading"
+  status: "loading",
 } as formTypes;
 
 const formType = createSlice({
@@ -166,7 +166,7 @@ const formType = createSlice({
   reducers: {
     setCurrentStepForm(state, action: PayloadAction<string>) {
       state.stepForm = action.payload;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(handlerVerifyCode.pending, (state) => {
@@ -220,7 +220,7 @@ const formType = createSlice({
         state.user = payload;
       }
     });
-  }
+  },
 });
 
 export const { setCurrentStepForm } = formType.actions;

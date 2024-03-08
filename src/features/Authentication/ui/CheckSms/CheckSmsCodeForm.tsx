@@ -22,16 +22,17 @@ export const CheckSmsCodeForm: FC<CheckSmsCodeFormProps> = ({ form }) => {
   const { t } = useTranslation();
 
   return (
-    <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
+    <Paper withBorder shadow='md' p={30} radius='md' mt='xl'>
       <Text>{t("enterCode")}</Text>
-      <TextInput required ta="left" {...form.getInputProps("smsCode")} />
-      <Flex mih={50} gap="sm" justify="center" align="center" direction="column" wrap="wrap">
+      <TextInput required ta='left' {...form.getInputProps("smsCode")} />
+      <Flex mih={50} gap='sm' justify='center' align='center' direction='column' wrap='wrap'>
         <Button
           className={classes.control}
-          radius="lg"
+          radius='lg'
           mt={20}
-          id="sign-in-button"
-          onClick={handlerVerifyCodeSms}>
+          id='sign-in-button'
+          onClick={handlerVerifyCodeSms}
+        >
           {t("send")}
         </Button>
       </Flex>

@@ -19,7 +19,7 @@ const ProductDetail = () => {
   if (product && store) {
     console.log(
       "isExistProductInBasket(product.id!, store)",
-      isExistProductInBasket(product.id!, store)
+      isExistProductInBasket(product.id!, store),
     );
     isExistInBascet = isExistProductInBasket(product.id!, store);
   }
@@ -35,8 +35,8 @@ const ProductDetail = () => {
   return (
     <Flex className={s.cardWrapper}>
       <Flex className={s.descriptionWrapper}>
-        <Flex display="flex" justify="space-between" direction="column">
-          <Flex display="flex" justify="space-between" direction="column">
+        <Flex display='flex' justify='space-between' direction='column'>
+          <Flex display='flex' justify='space-between' direction='column'>
             <Title>{product?.title}</Title>
             <Flex w={700}>
               <Text>{product?.description}</Text>

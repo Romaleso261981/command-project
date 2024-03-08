@@ -37,8 +37,8 @@ const ProductList: FC<ProductListProps> = ({ products }) => {
       </Flex>
       <Center>
         {!isFetching && products.length < productsTotal && (
-          <Box className="d-flex-center padding-l">
-            <Button disabled={isFetching} type="button">
+          <Box className='d-flex-center padding-l'>
+            <Button disabled={isFetching} type='button'>
               {isFetching ? "Fetching Items..." : "Show More Products"}
             </Button>
           </Box>

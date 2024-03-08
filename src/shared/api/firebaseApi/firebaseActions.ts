@@ -7,7 +7,7 @@ import { db, deleteDoc, doc, getDoc, setDoc, updateDoc } from "./models";
 export const setFirestoreData = async <T extends DocumentData>(
   path: string,
   id: string,
-  data: T
+  data: T,
 ): Promise<DocumentReference<T>> => {
   console.log(id);
   const docRef = doc(db, path, id) as DocumentReference<T>;
@@ -26,7 +26,7 @@ export const deleteFirestoreData = async (path: string, id: string): Promise<voi
 export const getAllFirestoreData = async <T extends DocumentData>(
   path: string,
   queryLimit: number,
-  lastRefKey?: number
+  lastRefKey?: number,
 ): Promise<T[] | null> => {
   const collectionRef = collection(db, path);
 
@@ -57,7 +57,7 @@ export const getAllFirestoreData = async <T extends DocumentData>(
 
 export const getFirestoreData = async <T extends DocumentData>(
   path: string,
-  id: string
+  id: string,
 ): Promise<T | null> => {
   const docRef = doc(db, path, id);
   const docSnap = await getDoc(docRef);
@@ -72,7 +72,7 @@ export const getFirestoreData = async <T extends DocumentData>(
 export const updateFirestoreData = async <T>(
   path: string,
   id: string,
-  data: Partial<T>
+  data: Partial<T>,
 ): Promise<void> => {
   const docRef = doc(db, path, id);
   await updateDoc(docRef, data);

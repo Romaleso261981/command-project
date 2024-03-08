@@ -39,41 +39,43 @@ export const LoginForm: FC<LoginFormProps> = ({ form }) => {
   const { t } = useTranslation();
 
   return (
-    <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
-      <Text size="lg">{t("auth.sign")}</Text>
+    <Paper withBorder shadow='md' p={30} radius='md' mt='xl'>
+      <Text size='lg'>{t("auth.sign")}</Text>
       <TextInput
         label={t("auth.yourPhone")}
         placeholder={t("auth.enterPhone")}
         required
-        ta="left"
+        ta='left'
         {...form.getInputProps("phoneNumber")}
       />
-      <Flex mih={50} gap="sm" justify="center" align="center" direction="column" wrap="wrap">
+      <Flex mih={50} gap='sm' justify='center' align='center' direction='column' wrap='wrap'>
         <Button
           className={classes.control}
           mt={30}
-          radius="lg"
-          id="sign-in-button"
+          radius='lg'
+          id='sign-in-button'
           onClick={handlerAuth}
-          disabled={!validFieldPhone}>
+          disabled={!validFieldPhone}
+        >
           {t("auth.sendSms")}
         </Button>
-        <Space h="xs" />
+        <Space h='xs' />
         <Group>
-          <Button leftSection={<FcGoogle />} variant="default" onClick={handleGoogle}>
+          <Button leftSection={<FcGoogle />} variant='default' onClick={handleGoogle}>
             {t("auth.withGoogle")}
           </Button>
-          <Button leftSection={<FaGithub />} color="dark.4" onClick={handleGithub}>
+          <Button leftSection={<FaGithub />} color='dark.4' onClick={handleGithub}>
             {t("auth.withGithub")}
           </Button>
         </Group>
       </Flex>
-      <Space h="md" />
+      <Space h='md' />
       <Button
         fullWidth
-        color="grape.6"
+        color='grape.6'
         // radius="lg"
-        leftSection={<Image h={20} w={20} src={iconSteam} />}>
+        leftSection={<Image h={20} w={20} src={iconSteam} />}
+      >
         {t("auth.signSteam")}
       </Button>
     </Paper>
