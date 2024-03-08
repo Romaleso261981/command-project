@@ -3,4 +3,4 @@ export {
   getFirestoreData,
   setFirestoreData,
   updateFirestoreData,
-} from './firebaseActions';
+} from "./firebaseActions";

@@ -1,8 +1,8 @@
-import type { QueryDocumentSnapshot } from 'firebase/firestore';
-import { collection, getDocs, limit, query, startAfter } from 'firebase/firestore';
+import type { QueryDocumentSnapshot } from "firebase/firestore";
+import { collection, getDocs, limit, query, startAfter } from "firebase/firestore";
 
-import type { DocumentData, DocumentReference } from './models';
-import { db, deleteDoc, doc, getDoc, setDoc, updateDoc } from './models';
+import type { DocumentData, DocumentReference } from "./models";
+import { db, deleteDoc, doc, getDoc, setDoc, updateDoc } from "./models";
 
 export const setFirestoreData = async <T extends DocumentData>(
   path: string,
@@ -41,16 +41,16 @@ export const getAllFirestoreData = async <T extends DocumentData>(
     return products;
   } else {
     const q = query(collectionRef, limit(queryLimit));
-    console.log('q', q);
+    console.log("q", q);
     const querySnapshot = await getDocs(q);
-    console.log('querySnapshot', querySnapshot);
+    console.log("querySnapshot", querySnapshot);
     const products: T[] = [];
 
     querySnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-      console.log('doc', doc);
+      console.log("doc", doc);
       products.push(doc.data() as T);
     });
-    console.log('products', products);
+    console.log("products", products);
     return products;
   }
 };

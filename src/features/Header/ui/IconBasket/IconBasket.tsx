@@ -1,10 +1,10 @@
-import { Flex } from '@mantine/core';
-import { SlBasketLoaded } from 'react-icons/sl';
+import { Flex } from "@mantine/core";
+import { SlBasketLoaded } from "react-icons/sl";
 
-import Badge from '@/features/Basket/UI/Badge/Badge';
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import Badge from "@/features/Basket/UI/Badge/Badge";
+import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
 
-import s from './IconBasket.module.css';
+import s from "./IconBasket.module.css";
 
 type IconBasket = {
   toggleShowBasket(): void;

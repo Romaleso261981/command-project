@@ -10,14 +10,14 @@ import {
   Text,
   Title,
   useMantineTheme,
-} from '@mantine/core';
-import { IconBookmark, IconHeart, IconShare } from '@tabler/icons-react';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+} from "@mantine/core";
+import { IconBookmark, IconHeart, IconShare } from "@tabler/icons-react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
 
-import s from './ProductDetail.module.css';
+import s from "./ProductDetail.module.css";
 
 const ProductDetail = () => {
   const { t } = useTranslation();
@@ -32,14 +32,14 @@ const ProductDetail = () => {
           <Flex display='flex' justify='space-between' direction='column'>
             <Title>{product?.title}</Title>
             <Button>
-              <Link to='/products'>{t('shop.inshop')}</Link>
+              <Link to='/products'>{t("shop.inshop")}</Link>
             </Button>
           </Flex>
         </Flex>
         <Flex>
           <Group mt={15} gap={20} pb={10}>
-            <Button>{t('shop.inBascet')}</Button>
-            <Button>{t('shop.оrder')}</Button>
+            <Button>{t("shop.inBascet")}</Button>
+            <Button>{t("shop.оrder")}</Button>
           </Group>
           <Group justify='space-between' className={s.footer}>
             <Center>

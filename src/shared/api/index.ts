@@ -1,1 +1,1 @@
-export * from '@/shared/api/firebaseApi/index';
+export * from "@/shared/api/firebaseApi/index";

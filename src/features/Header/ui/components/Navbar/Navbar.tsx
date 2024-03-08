@@ -1,4 +1,4 @@
-import { Group, rem, Stack, Tooltip, UnstyledButton } from '@mantine/core';
+import { Group, rem, Stack, Tooltip, UnstyledButton } from "@mantine/core";
 import {
   IconDeviceDesktopAnalytics,
   IconFingerprint,
@@ -7,10 +7,10 @@ import {
   IconLogin,
   IconLogout,
   IconSettings,
-} from '@tabler/icons-react';
-import { Link } from 'react-router-dom';
+} from "@tabler/icons-react";
+import { Link } from "react-router-dom";
 
-import classes from './Navbar.module.css';
+import classes from "./Navbar.module.css";
 
 interface NavbarLinkProps {
   icon: typeof IconHome2;
