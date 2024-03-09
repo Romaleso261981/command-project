@@ -10,4 +10,5 @@
 
 .scrolled::after {
   opacity: 1;
+  padding: 47.5rem;
 }

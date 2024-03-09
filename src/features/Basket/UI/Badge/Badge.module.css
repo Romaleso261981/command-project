@@ -1,0 +1,19 @@
+.badgeCount {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: red;
+  position: absolute;
+  top: -12px;
+  right: -15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.badge {
+  position: relative;
+}
