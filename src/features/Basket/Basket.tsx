@@ -1,9 +1,8 @@
-import { Box, Drawer, Flex, Text, Title } from "@mantine/core";
+import { Box, Drawer, Flex, Title } from "@mantine/core";
 import { type FC } from "react";
 import { useTranslation } from "react-i18next";
 import { IoClose } from "react-icons/io5";
 
-import { incomeTotal } from "@/shared/helpers/basket/totalCost";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
 
@@ -33,9 +32,9 @@ const Basket: FC = () => {
           <SingleCard data={item} />
         </Flex>
       ))}
-      <Flex>
+      {/* <Flex>
         <Text>{`${t("basket.totalDue")} ${incomeTotal(orderedProduct).toLocaleString()} $.`}</Text>
-      </Flex>
+      </Flex> */}
       :
       <Flex className={s.basketEmpty}>
         <Title className={s.basketEmptyMsg}>{t("basket.basketEmpty")}</Title>
