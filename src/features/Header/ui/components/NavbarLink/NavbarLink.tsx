@@ -1,9 +1,9 @@
-import { rem, Stack, Tooltip, UnstyledButton } from '@mantine/core';
-import type { IconHome2 } from '@tabler/icons-react';
-import { IconLogin, IconLogout } from '@tabler/icons-react';
-import { useNavigate } from 'react-router-dom';
+import { rem, Stack, Tooltip, UnstyledButton } from "@mantine/core";
+import type { IconHome2 } from "@tabler/icons-react";
+import { IconLogin, IconLogout } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
-import classes from './Navbar.module.css';
+import classes from "./Navbar.module.css";
 
 interface NavbarLinkProps {
   icon: typeof IconHome2;
@@ -27,10 +27,10 @@ export const Navbar = () => {
   const isAuth = true;
 
   const hendlelogOut = () => {
-    navigate('/');
+    navigate("/");
   };
   const hendlelogin = () => {
-    navigate('/auth');
+    navigate("/auth");
   };
 
   return (

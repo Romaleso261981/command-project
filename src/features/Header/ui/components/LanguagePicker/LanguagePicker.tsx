@@ -1,22 +1,22 @@
-import { Group, Image, Menu, UnstyledButton } from '@mantine/core';
-import { useLocalStorage } from '@mantine/hooks';
-import { IconChevronDown } from '@tabler/icons-react';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { Group, Image, Menu, UnstyledButton } from "@mantine/core";
+import { useLocalStorage } from "@mantine/hooks";
+import { IconChevronDown } from "@tabler/icons-react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
-import images from './images';
-import classes from './LanguagePicker.module.css';
-import type { LanguagePickerProps, LanPickerProps } from './types';
+import images from "./images";
+import classes from "./LanguagePicker.module.css";
+import type { LanguagePickerProps, LanPickerProps } from "./types";
 
 const data = [
-  { label: 'en', image: images.english },
-  { label: 'ru', image: images.ru },
+  { label: "en", image: images.english },
+  { label: "ru", image: images.ru },
 ];
 
 export const LanguagePicker = ({ type }: LanguagePickerProps) => {
-  const [value] = useLocalStorage<'en' | 'ru'>({
-    key: 'i18nextLng',
-    defaultValue: 'ru',
+  const [value] = useLocalStorage<"en" | "ru">({
+    key: "i18nextLng",
+    defaultValue: "ru",
   });
 
   const initialLeng = data.find((i) => i.label === value);
@@ -44,9 +44,9 @@ export const LanguagePicker = ({ type }: LanguagePickerProps) => {
         <UnstyledButton className={classes.control}>
           <Group gap='xs'>
             <Image src={selected?.image} width={22} height={22} alt='flag' />
-            {type === 'expanded' && <span className={classes.label}>{selected?.label}</span>}
+            {type === "expanded" && <span className={classes.label}>{selected?.label}</span>}
           </Group>
-          {type === 'expanded' && (
+          {type === "expanded" && (
             <IconChevronDown size='1rem' className={classes.icon} stroke={1.5} />
           )}
         </UnstyledButton>

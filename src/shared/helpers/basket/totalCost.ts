@@ -1,4 +1,4 @@
-import type { Product } from '@/pages/ShopPage/type';
+import type { Product } from "@/pages/ShopPage/type";
 
 export const incomeTotal = (arr: Product[]) => {
   if (!arr || arr?.length === 0) return 0;

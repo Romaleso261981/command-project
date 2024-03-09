@@ -1,11 +1,11 @@
-import { Center, rem, Stack, Tooltip, UnstyledButton } from '@mantine/core';
-import { MantineLogo } from '@mantinex/mantine-logo';
-import type { IconHome2 } from '@tabler/icons-react';
-import { IconLogout, IconSwitchHorizontal } from '@tabler/icons-react';
-import { useState } from 'react';
+import { Center, rem, Stack, Tooltip, UnstyledButton } from "@mantine/core";
+import { MantineLogo } from "@mantinex/mantine-logo";
+import type { IconHome2 } from "@tabler/icons-react";
+import { IconLogout, IconSwitchHorizontal } from "@tabler/icons-react";
+import { useState } from "react";
 
-import { mockdata } from './mockdata';
-import classes from './Navbar.module.css';
+import { mockdata } from "./mockdata";
+import classes from "./Navbar.module.css";
 
 interface NavbarLinkProps {
   icon: typeof IconHome2;

@@ -1,4 +1,4 @@
-import { Burger, Menu, rem, Text } from '@mantine/core';
+import { Burger, Menu, rem, Text } from "@mantine/core";
 import {
   IconArrowsLeftRight,
   IconMessageCircle,
@@ -6,7 +6,7 @@ import {
   IconSearch,
   IconSettings,
   IconTrash,
-} from '@tabler/icons-react';
+} from "@tabler/icons-react";
 
 export const ToggleMenu = () => {
   return (

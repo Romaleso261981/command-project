@@ -1,13 +1,13 @@
-import { Button, Flex, Group, Image, Text, Title } from '@mantine/core';
+import { Button, Flex, Group, Image, Text, Title } from "@mantine/core";
 // import { IconBookmark, IconHeart, IconShare } from '@tabler/icons-react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
-import { addToBasket, removeFromBasket } from '@/pages/ShopPage/model/slise';
-import isExistProductInBasket from '@/shared/helpers/basket/isTheBasket';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { addToBasket, removeFromBasket } from "@/pages/ShopPage/model/shopPageslise";
+import isExistProductInBasket from "@/shared/helpers/basket/isTheBasket";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
 
-import s from './ProductDetail.module.css';
+import s from "./ProductDetail.module.css";
 
 const ProductDetail = () => {
   const { t } = useTranslation();
@@ -33,25 +33,30 @@ const ProductDetail = () => {
   return (
     <Flex className={s.cardWrapper}>
       <Flex className={s.descriptionWrapper}>
-        <Flex display='flex' justify='space-between' direction='column'>
-          <Flex display='flex' justify='space-between' direction='column'>
-            <Title>{product?.title}</Title>
-            <Flex w={700}>
+        <Flex display='flex' justify='space-between' direction={"row"}>
+          <Flex
+            className={s.descriptionWrapper}
+            display='flex'
+            justify='space-around'
+            direction={"column"}
+          >
+            <Title className={s.title}>{product?.title}</Title>
+            <Flex className={s.description}>
               <Text>{product?.description}</Text>
             </Flex>
           </Flex>
         </Flex>
         <Flex>
           <Group mt={50} gap={20}>
-            {!isExistInBascet && <Button onClick={addProductToBasket}>{t('shop.inBascet')}</Button>}
+            {!isExistInBascet && <Button onClick={addProductToBasket}>{t("shop.inBascet")}</Button>}
             {isExistInBascet && (
-              <Button onClick={removeProductFromBasket}>{t('shop.fromBascet')}</Button>
+              <Button onClick={removeProductFromBasket}>{t("shop.fromBascet")}</Button>
             )}
-            <Button>{t('shop.оrder')}</Button>
+            <Button>{t("shop.оrder")}</Button>
           </Group>
         </Flex>
       </Flex>
-      <Flex className={s.imageWrapper} w={550}>
+      <Flex className={s.imageWrapper}>
         <Image src={product?.imageURL} />
       </Flex>
     </Flex>

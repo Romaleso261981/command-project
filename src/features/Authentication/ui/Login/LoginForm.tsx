@@ -1,17 +1,17 @@
-import '@mantine/core/styles.css';
+import "@mantine/core/styles.css";
 
-import { Button, Flex, Group, Image, Paper, Space, Text, TextInput } from '@mantine/core';
-import type { UseFormReturnType } from '@mantine/form';
-import { useTranslation } from 'react-i18next';
-import { FaGithub } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
+import { Button, Flex, Group, Image, Paper, Space, Text, TextInput } from "@mantine/core";
+import type { UseFormReturnType } from "@mantine/form";
+import { useTranslation } from "react-i18next";
+import { FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
-import { signIn } from '@/features/Authentication/model/slice';
-import type { FC, FormFields } from '@/features/Authentication/model/types';
-import iconSteam from '@/shared/assets/steam.svg';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { signIn } from "@/features/Authentication/model/slice";
+import type { FC, FormFields } from "@/features/Authentication/model/types";
+import iconSteam from "@/shared/assets/steam.svg";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 
-import classes from './LoginForm.module.css';
+import classes from "./LoginForm.module.css";
 
 interface LoginFormProps {
   form: UseFormReturnType<FormFields>;
@@ -19,7 +19,7 @@ interface LoginFormProps {
 
 export const LoginForm: FC<LoginFormProps> = ({ form }) => {
   const dispatch = useAppDispatch();
-  const validFieldPhone = form.isValid('phoneNumber');
+  const validFieldPhone = form.isValid("phoneNumber");
 
   const handleGithub = () => {
     // dispatch(setUserByGithub(() => navigate(RoutersPaths.ADMIN)));
@@ -37,13 +37,13 @@ export const LoginForm: FC<LoginFormProps> = ({ form }) => {
 
   return (
     <Paper withBorder shadow='md' p={30} radius='md' mt='xl'>
-      <Text size='lg'>{t('auth.sign')}</Text>
+      <Text size='lg'>{t("auth.sign")}</Text>
       <TextInput
-        label={t('auth.yourPhone')}
-        placeholder={t('auth.enterPhone')}
+        label={t("auth.yourPhone")}
+        placeholder={t("auth.enterPhone")}
         required
         ta='left'
-        {...form.getInputProps('phoneNumber')}
+        {...form.getInputProps("phoneNumber")}
       />
       <Flex mih={50} gap='sm' justify='center' align='center' direction='column' wrap='wrap'>
         <Button
@@ -54,15 +54,15 @@ export const LoginForm: FC<LoginFormProps> = ({ form }) => {
           onClick={handlerAuth}
           disabled={!validFieldPhone}
         >
-          {t('auth.sendSms')}
+          {t("auth.sendSms")}
         </Button>
         <Space h='xs' />
         <Group>
           <Button leftSection={<FcGoogle />} variant='default' onClick={handleGoogle}>
-            {t('auth.withGoogle')}
+            {t("auth.withGoogle")}
           </Button>
           <Button leftSection={<FaGithub />} color='dark.4' onClick={handleGithub}>
-            {t('auth.withGithub')}
+            {t("auth.withGithub")}
           </Button>
         </Group>
       </Flex>
@@ -73,7 +73,7 @@ export const LoginForm: FC<LoginFormProps> = ({ form }) => {
         // radius="lg"
         leftSection={<Image h={20} w={20} src={iconSteam} />}
       >
-        {t('auth.signSteam')}
+        {t("auth.signSteam")}
       </Button>
     </Paper>
   );

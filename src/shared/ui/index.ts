@@ -1,2 +1,2 @@
-export * from './Loader/Loader';
-export * from './NoAccess/NoAccess';
+export * from "./Loader/Loader";
+export * from "./NoAccess/NoAccess";

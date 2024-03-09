@@ -9,10 +9,10 @@ import {
   Tooltip,
   useMantineColorScheme,
   useMantineTheme,
-} from '@mantine/core';
-import { IconMessageCircle } from '@tabler/icons-react';
+} from "@mantine/core";
+import { IconMessageCircle } from "@tabler/icons-react";
 
-import { ICON_SIZE, MESSAGES } from './data';
+import { ICON_SIZE, MESSAGES } from "./data";
 
 export default function Messages() {
   const { colorScheme } = useMantineColorScheme();
@@ -22,7 +22,7 @@ export default function Messages() {
       key={m.id}
       style={{
         borderBottom: `1px solid ${
-          colorScheme === 'dark' ? theme.colors.gray[7] : theme.colors.gray[3]
+          colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3]
         }`,
       }}
     >

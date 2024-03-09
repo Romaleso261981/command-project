@@ -1,7 +1,7 @@
-import type { PayloadAction } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-import { USER_RULE } from '@/constants/constans';
+import { USER_RULE } from "@/constants/constans";
 
 type CurrentUser = {
   phoneNumber: string;
@@ -11,19 +11,19 @@ type CurrentUser = {
 };
 
 export enum Role {
-  ADMIN = 'admin',
-  USER = 'user',
+  ADMIN = "admin",
+  USER = "user",
 }
 
 const initialState = {
-  phoneNumber: '',
-  smsCode: '',
-  displayName: '',
+  phoneNumber: "",
+  smsCode: "",
+  displayName: "",
   rule: USER_RULE,
 } as CurrentUser;
 
 const curentUserSlice = createSlice({
-  name: 'search',
+  name: "search",
   initialState,
   reducers: {
     setPhoneNumber(state, action: PayloadAction<string>) {

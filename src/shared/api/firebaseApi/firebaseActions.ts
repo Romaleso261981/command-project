@@ -1,8 +1,8 @@
-import type { QueryDocumentSnapshot } from 'firebase/firestore';
-import { collection, getDocs, limit, query, startAfter } from 'firebase/firestore';
+import type { QueryDocumentSnapshot } from "firebase/firestore";
+import { collection, getDocs, limit, query, startAfter } from "firebase/firestore";
 
-import type { DocumentData, DocumentReference } from './models';
-import { db, deleteDoc, doc, getDoc, setDoc, updateDoc } from './models';
+import type { DocumentData, DocumentReference } from "./models";
+import { db, deleteDoc, doc, getDoc, setDoc, updateDoc } from "./models";
 
 export const setFirestoreData = async <T extends DocumentData>(
   path: string,
@@ -28,10 +28,9 @@ export const getAllFirestoreData = async <T extends DocumentData>(
   lastRefKey?: number,
 ): Promise<T[] | null> => {
   const collectionRef = collection(db, path);
-  console.log('lastRefKey', lastRefKey);
 
   if (lastRefKey) {
-    console.log('lastRefKey', lastRefKey);
+    console.log("lastRefKey", lastRefKey);
     const q = query(collectionRef, startAfter(5), limit(queryLimit));
     const querySnapshot = await getDocs(q);
     const products: T[] = [];

@@ -1,6 +1,6 @@
-import images from './images';
+import images from "./images";
 
 export const LanguagePickerData = [
-  { label: 'en', image: images.english },
-  { label: 'ru', image: images.ru },
+  { label: "en", image: images.english },
+  { label: "ru", image: images.ru },
 ];

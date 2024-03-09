@@ -1,4 +1,4 @@
-import type { FileWithPath } from '@mantine/dropzone';
+import type { FileWithPath } from "@mantine/dropzone";
 
 export type RequestStatus = {
   description: string;

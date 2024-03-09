@@ -1,4 +1,4 @@
-import { Flex, Loader } from '@mantine/core';
+import { Flex, Loader } from "@mantine/core";
 
 export function UiLoader() {
   return (

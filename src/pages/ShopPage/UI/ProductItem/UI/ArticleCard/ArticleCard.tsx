@@ -12,21 +12,25 @@ import {
   rem,
   Text,
   useMantineTheme,
-} from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
-import { IconBookmark, IconHeart, IconShare } from '@tabler/icons-react';
-import type { FC } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+} from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+import { IconBookmark, IconHeart, IconShare } from "@tabler/icons-react";
+import type { FC } from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
-import { Role } from '@/enteties/session/User/model/slice';
-import { addToBasket, removeFromBasket, removeProductById } from '@/pages/ShopPage/model/slise';
-import type { Product } from '@/pages/ShopPage/type';
-import isExistProductInBasket from '@/shared/helpers/basket/isTheBasket';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { Role } from "@/enteties/session/User/model/slice";
+import {
+  addToBasket,
+  removeFromBasket,
+  removeProductById,
+} from "@/pages/ShopPage/model/shopPageslise";
+import type { Product } from "@/pages/ShopPage/type";
+import isExistProductInBasket from "@/shared/helpers/basket/isTheBasket";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
 
-import classes from './ArticleCard.module.css';
+import classes from "./ArticleCard.module.css";
 
 type ProductItemProps = {
   product: Product;
@@ -36,9 +40,9 @@ const ArticleCard: FC<ProductItemProps> = ({ product }) => {
   const isAdmin = Role.ADMIN === useAppSelector((state) => state.curentUserSlice.rule);
   const basket = useAppSelector((state) => state.producsSlise.basket);
 
-  const matches = useMediaQuery('(min-width: 56.25em)');
+  const matches = useMediaQuery("(min-width: 56.25em)");
 
-  const linkProps = { target: '_blank', rel: 'noopener noreferrer' };
+  const linkProps = { target: "_blank", rel: "noopener noreferrer" };
   const theme = useMantineTheme();
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -74,7 +78,7 @@ const ArticleCard: FC<ProductItemProps> = ({ product }) => {
         <Badge
           className={classes.rating}
           variant='gradient'
-          gradient={{ from: 'yellow', to: 'red' }}
+          gradient={{ from: "yellow", to: "red" }}
         >
           {product.price.toPrecision()}
         </Badge>
@@ -90,20 +94,20 @@ const ArticleCard: FC<ProductItemProps> = ({ product }) => {
       <Flex mt={15} gap={20} pb={10}>
         <Group>
           {!isExistProductInBasket(product.id!, basket) && (
-            <Button onClick={addProductToBasket}>{t('shop.inBascet')}</Button>
+            <Button onClick={addProductToBasket}>{t("shop.inBascet")}</Button>
           )}
           {isExistProductInBasket(product.id!, basket) && (
-            <Button onClick={removeProductFromBasket}>{t('shop.fromBascet')}</Button>
+            <Button onClick={removeProductFromBasket}>{t("shop.fromBascet")}</Button>
           )}
         </Group>
-        <Button>{t('shop.оrder')}</Button>
+        <Button>{t("shop.оrder")}</Button>
         {isAdmin && (
           <Button
             onClick={() => {
               removeProduct(product.id);
             }}
           >
-            {t('shop.remove')}
+            {t("shop.remove")}
           </Button>
         )}
       </Flex>

@@ -1,10 +1,9 @@
-import { Group } from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
+import { Group } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Basket } from "@/shared/ui/Drawer/Drawer";
 
-import { setIsBasketShow } from '../Basket/model/basketSlise';
-import classes from './Header.module.css';
+import classes from "./Header.module.css";
 import {
   ColorSwitch,
   HeaderTitle,
@@ -13,24 +12,17 @@ import {
   Notification,
   Search,
   UserInfo,
-} from './ui';
-import { IconBasket } from './ui/IconBasket/IconBasket';
-import { ToggleMenu } from './ui/ToggleMenu/ToggleMenu';
+} from "./ui";
+import { ToggleMenu } from "./ui/ToggleMenu/ToggleMenu";
 
 export function Header() {
-  const matches = useMediaQuery('(min-width: 56.25em)');
-
-  const dispatch = useAppDispatch();
-
-  const handleOpenBasket = async () => {
-    dispatch(setIsBasketShow());
-  };
+  const matches = useMediaQuery("(min-width: 1111px)");
 
   return (
     <Group className={classes.root}>
       <Group gap='xs' pl={40} pb={5} pt={5}>
         <HeaderTitle />
-        <IconBasket toggleShowBasket={handleOpenBasket} />
+        {!matches && <Basket />}
       </Group>
       {!matches ? (
         <Group>
@@ -39,6 +31,7 @@ export function Header() {
       ) : (
         <Group gap='xs' justify='space-between'>
           <Search />
+          {matches && <Basket />}
           <Messages />
           <Notification />
           <LanguagePicker type='collapsed' />

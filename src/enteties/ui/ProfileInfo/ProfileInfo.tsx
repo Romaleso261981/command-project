@@ -1,12 +1,12 @@
 /* eslint-disable no-nested-ternary */
-import { Avatar, Button, Flex, Group, Stack, Tabs, Text } from '@mantine/core';
-import { useHover } from '@mantine/hooks';
-import { IconPhoneCall, IconTrash, IconUpload } from '@tabler/icons-react';
-import { type FC } from 'react';
+import { Avatar, Button, Flex, Group, Stack, Tabs, Text } from "@mantine/core";
+import { useHover } from "@mantine/hooks";
+import { IconPhoneCall, IconTrash, IconUpload } from "@tabler/icons-react";
+import { type FC } from "react";
 
-import { dataUser } from '../../config/dataUser';
-import { ModalSettings } from '../ModalSettings';
-import styles from './styles.module.css';
+import { dataUser } from "../../config/dataUser";
+import { ModalSettings } from "../ModalSettings";
+import styles from "./styles.module.css";
 
 export const ProfileInfo: FC = () => {
   const { hovered, ref } = useHover();
@@ -14,24 +14,24 @@ export const ProfileInfo: FC = () => {
   return (
     <Stack>
       <Group gap='xl' align='center'>
-        <Flex ref={ref} pos={'relative'}>
+        <Flex ref={ref} pos={"relative"}>
           <Avatar
             src='https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-7.png'
             size={128}
           />
           {hovered && (
             <Flex
-              pos={'absolute'}
-              display={'flex'}
-              bg={'rgba(0, 0, 0, 0.6)'}
-              w={'100%'}
-              h={'100%'}
-              align={'center'}
-              justify={'center'}
-              bgr={'100%'}
+              pos={"absolute"}
+              display={"flex"}
+              bg={"rgba(0, 0, 0, 0.6)"}
+              w={"100%"}
+              h={"100%"}
+              align={"center"}
+              justify={"center"}
+              bgr={"100%"}
               className={styles.flexContainer}
             >
-              <Flex gap='8px' align={'center'} justify={'center'}>
+              <Flex gap='8px' align={"center"} justify={"center"}>
                 <Button size='xs'>
                   <IconUpload width='16' height='16' />
                 </Button>

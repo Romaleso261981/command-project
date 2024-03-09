@@ -1,18 +1,19 @@
-import { Box, Flex, Text, Title } from '@mantine/core';
-import type { FC } from 'react';
-import { useTranslation } from 'react-i18next';
-import { IoClose } from 'react-icons/io5';
+import { Box, Drawer, Flex, Text, Title } from "@mantine/core";
+import { type FC } from "react";
+import { useTranslation } from "react-i18next";
+import { IoClose } from "react-icons/io5";
 
-import { incomeTotal } from '@/shared/helpers/basket/totalCost';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector';
+import { incomeTotal } from "@/shared/helpers/basket/totalCost";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
 
-import s from './Basket.module.css';
-import { setIsBasketShow } from './model/basketSlise';
-import { SingleCard } from './UI/CardItem/CardItem';
+import s from "./Basket.module.css";
+import { setIsBasketShow } from "./model/basketSlise";
+import { SingleCard } from "./UI/CardItem/CardItem";
 
 const Basket: FC = () => {
   const orderedProduct = useAppSelector((state) => state.producsSlise.basket);
+  const opened = useAppSelector((state) => state.basket.isBasketShow);
 
   const dispatch = useAppDispatch();
 
@@ -22,19 +23,8 @@ const Basket: FC = () => {
 
   const { t } = useTranslation();
 
-  if (orderedProduct.length <= 0) {
-    return (
-      <Flex className={s.basketEmpty}>
-        <Title className={s.basketEmptyMsg}>{t('basket.basketEmpty')}</Title>
-        <Box ml='auto' onClick={handleOpenBasket} className={s.close}>
-          <IoClose />
-        </Box>
-      </Flex>
-    );
-  }
-
   return (
-    <Flex className={s.card}>
+    <Drawer opened={opened} onClose={handleOpenBasket} title='Register' padding='xl' size='xl'>
       <Box ml='auto' onClick={handleOpenBasket} className={s.close}>
         <IoClose />
       </Box>
@@ -44,9 +34,16 @@ const Basket: FC = () => {
         </Flex>
       ))}
       <Flex>
-        <Text>{`${t('basket.totalDue')} ${incomeTotal(orderedProduct).toLocaleString()} $.`}</Text>
+        <Text>{`${t("basket.totalDue")} ${incomeTotal(orderedProduct).toLocaleString()} $.`}</Text>
       </Flex>
-    </Flex>
+      :
+      <Flex className={s.basketEmpty}>
+        <Title className={s.basketEmptyMsg}>{t("basket.basketEmpty")}</Title>
+        <Box ml='auto' onClick={handleOpenBasket} className={s.close}>
+          <IoClose />
+        </Box>
+      </Flex>
+    </Drawer>
   );
 };
 
