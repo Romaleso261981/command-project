@@ -1,0 +1,40 @@
+.card {
+  position: absolute;
+  top: 9.375rem;
+  right: 12.5rem;
+  display: flex;
+  gap: 0.625rem;
+  padding: 0.3125rem 0.625rem;
+  flex-direction: column;
+  background-color: var(--mantine-color-body);
+  width: max-content;
+  height: auto;
+  border-radius: 0.0625rem;
+  background-color: #f1e4e4;
+  box-shadow: -19px 20px 21px 4px rgba(140, 130, 140, 1);
+}
+
+.close {
+  cursor: pointer;
+}
+
+.action:hover {
+  background-color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-6));
+}
+
+.basketEmpty {
+  position: absolute;
+  top: 9.375rem;
+  right: 12.5rem;
+  flex-grow: 1;
+  display: flex;
+  padding: 0.3125rem 0.625rem;
+  width: 31.25rem;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -19px 20px 21px 4px rgba(140, 130, 140, 1);
+}
+
+.basketEmptyMsg {
+  color: gray;
+}

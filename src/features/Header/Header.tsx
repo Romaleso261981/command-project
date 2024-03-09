@@ -1,6 +1,9 @@
-import { Burger, Group } from '@mantine/core';
+import { Group } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 
-import classes from './Header.module.css';
+import { Basket } from "@/shared/ui/Drawer/Drawer";
+
+import classes from "./Header.module.css";
 import {
   ColorSwitch,
   HeaderTitle,
@@ -8,29 +11,34 @@ import {
   Messages,
   Notification,
   Search,
-  UserInfo
-} from './ui';
-
-export type HeaderProps = {
-  navbarExpanded: boolean;
-  toggleNavbar(): void;
-};
+  UserInfo,
+} from "./ui";
+import { ToggleMenu } from "./ui/ToggleMenu/ToggleMenu";
 
 export function Header() {
+  const matches = useMediaQuery("(min-width: 1111px)");
+
   return (
     <Group className={classes.root}>
-      <Group gap="xs" pl={40} pb={5} pt={5}>
-        <Burger aria-label="Show menu" hiddenFrom="sm" size="sm" />
+      <Group gap='xs' pl={40} pb={5} pt={5}>
         <HeaderTitle />
+        {!matches && <Basket />}
       </Group>
-      <Group gap="xs" justify="space-between">
-        <Search />
-        <Messages />
-        <Notification />
-        <LanguagePicker type="collapsed" />
-        <ColorSwitch />
-        <UserInfo />
-      </Group>
+      {!matches ? (
+        <Group>
+          <ToggleMenu />
+        </Group>
+      ) : (
+        <Group gap='xs' justify='space-between'>
+          <Search />
+          {matches && <Basket />}
+          <Messages />
+          <Notification />
+          <LanguagePicker type='collapsed' />
+          <ColorSwitch />
+          <UserInfo />
+        </Group>
+      )}
     </Group>
   );
 }

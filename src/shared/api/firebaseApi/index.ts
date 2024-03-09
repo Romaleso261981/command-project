@@ -2,5 +2,5 @@ export {
   deleteFirestoreData,
   getFirestoreData,
   setFirestoreData,
-  updateFirestoreData
-} from './firebaseActions';
+  updateFirestoreData,
+} from "./firebaseActions";

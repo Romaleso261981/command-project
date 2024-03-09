@@ -1,9 +1,9 @@
-import { rem, Stack, Tooltip, UnstyledButton } from '@mantine/core';
-import type { IconHome2 } from '@tabler/icons-react';
-import { IconLogin, IconLogout } from '@tabler/icons-react';
-import { useNavigate } from 'react-router-dom';
+import { rem, Stack, Tooltip, UnstyledButton } from "@mantine/core";
+import type { IconHome2 } from "@tabler/icons-react";
+import { IconLogin, IconLogout } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
-import classes from './Navbar.module.css';
+import classes from "./Navbar.module.css";
 
 interface NavbarLinkProps {
   icon: typeof IconHome2;
@@ -14,7 +14,7 @@ interface NavbarLinkProps {
 
 const NavbarLink = ({ icon: Icon, label, active, onClick }: NavbarLinkProps) => {
   return (
-    <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
+    <Tooltip label={label} position='right' transitionProps={{ duration: 0 }}>
       <UnstyledButton onClick={onClick} className={classes.link} data-active={active || undefined}>
         <Icon style={{ width: rem(20), height: rem(20) }} stroke={1.5} />
       </UnstyledButton>
@@ -27,18 +27,18 @@ export const Navbar = () => {
   const isAuth = true;
 
   const hendlelogOut = () => {
-    navigate('/');
+    navigate("/");
   };
   const hendlelogin = () => {
-    navigate('/auth');
+    navigate("/auth");
   };
 
   return (
-    <Stack justify="center" gap={0}>
+    <Stack justify='center' gap={0}>
       {isAuth ? (
-        <NavbarLink icon={IconLogout} label="Logout" onClick={hendlelogOut} />
+        <NavbarLink icon={IconLogout} label='Logout' onClick={hendlelogOut} />
       ) : (
-        <NavbarLink icon={IconLogin} label="Logout" onClick={hendlelogin} />
+        <NavbarLink icon={IconLogin} label='Logout' onClick={hendlelogin} />
       )}
     </Stack>
   );

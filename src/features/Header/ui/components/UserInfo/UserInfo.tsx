@@ -1,12 +1,12 @@
-import { Avatar, Group, rem, Stack, Text, UnstyledButton } from '@mantine/core';
-import { IconChevronRight, IconCoin, IconLogin } from '@tabler/icons-react';
-import { useNavigate } from 'react-router-dom';
+import { Avatar, Group, rem, Stack, Text, UnstyledButton } from "@mantine/core";
+import { IconChevronRight, IconCoin, IconLogin } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
-import styles from './UserInfo.module.css';
+import styles from "./UserInfo.module.css";
 
 export const UserInfo = () => {
   const user = {
-    id: 'kjdfvkjndfnk'
+    id: "kjdfvkjndfnk",
   };
   // const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -19,36 +19,36 @@ export const UserInfo = () => {
   // }, []);
 
   const hendlelogOut = () => {
-    localStorage.removeItem('user');
-    navigate('/');
+    localStorage.removeItem("user");
+    navigate("/");
   };
   const hendlelogin = () => {
     localStorage.setItem(
-      'user',
+      "user",
       JSON.stringify({
-        id: 'kjdfvkjndfnk'
-      })
+        id: "kjdfvkjndfnk",
+      }),
     );
-    navigate('/admin');
+    navigate("/admin");
   };
 
   return (
-    <Stack justify="center" gap={0}>
+    <Stack justify='center' gap={0}>
       {user ? (
         <UnstyledButton className={styles.user}>
           <Group>
             <Avatar
-              src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png"
-              radius="xl"
+              src='https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png'
+              radius='xl'
               size={28}
             />
             <div style={{ flex: 1 }}>
-              <Text size="sm" fw={500}>
+              <Text size='sm' fw={500}>
                 Harriette
               </Text>
               <Group>
-                <IconCoin color="#f1a708" />
-                <Text c="dimmed" size="md">
+                <IconCoin color='#f1a708' />
+                <Text c='dimmed' size='md'>
                   410
                 </Text>
               </Group>
