@@ -1,0 +1,12 @@
+.basketWrapper {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  width: 50%;
+  height: 500px;
+  z-index: 10;
+  box-shadow: -21px 20px 22px 8px rgba(130, 126, 130, 1);
+  box-shadow: -21px 20px 22px 8px rgba(130, 126, 130, 1);
+  box-shadow: -21px 20px 22px 8px rgba(130, 126, 130, 1);
+  background-color: #f0ebeb;
+}

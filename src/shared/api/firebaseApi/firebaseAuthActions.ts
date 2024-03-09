@@ -1,10 +1,10 @@
-import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
-import { auth, db } from '@/shared/config/firebase/firebase';
+import { auth, db } from "@/shared/config/firebase/firebase";
 
 export const setupRecaptcha = (phoneNumber: string) => {
-  const recapthca = new RecaptchaVerifier(auth, 'sign-in-button', {
-    size: 'invisible'
+  const recapthca = new RecaptchaVerifier(auth, "sign-in-button", {
+    size: "invisible",
   });
   return signInWithPhoneNumber(auth, phoneNumber, recapthca);
 };
@@ -26,7 +26,7 @@ export const convertUserField = (displayName: string) => {
     email: currentUser?.email,
     phoneNumber: currentUser?.phoneNumber,
     photoURL: currentUser?.photoURL,
-    providerId: currentUser?.providerId
+    providerId: currentUser?.providerId,
   };
   return currentUserInfo;
 };

@@ -1,7 +1,7 @@
-import { Center, Text, Title } from '@mantine/core';
-import { Link, useParams } from 'react-router-dom';
+import { Center, Text, Title } from "@mantine/core";
+import { Link, useParams } from "react-router-dom";
 
-import styles from './UserPage.module.css';
+import styles from "./UserPage.module.css";
 
 function UserPage() {
   const { id } = useParams();
@@ -12,7 +12,7 @@ function UserPage() {
         <Text>{id}</Text>
       </Center>
       <Center>
-        <Link to="/">Back to main</Link>
+        <Link to='/'>Back to main</Link>
       </Center>
     </>
   );

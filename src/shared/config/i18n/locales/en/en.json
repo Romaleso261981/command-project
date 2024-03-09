@@ -46,5 +46,19 @@
     "update": "Update",
     "name": "Name",
     "enterYourName": "Enter your name"
+  },
+  "shop": {
+    "inshop": "In shop",
+    "cost": "Cost",
+    "union": "$.",
+    "noDescr": "No description.",
+    "noProducts": "No products found.",
+    "brand": "Brand.",
+    "inBascet": "Add to cart",
+    "fromBascet": "Remove from basket",
+    "оrder": "Order",
+    "remove": "Remove",
+    "addProd": "Add product",
+    "store": "Store"
   }
 }
