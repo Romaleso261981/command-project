@@ -2,9 +2,9 @@ import { AppShell } from "@mantine/core";
 import { Outlet } from "react-router-dom";
 
 import Basket from "@/features/Basket/Basket";
-import { Header } from "@/features/Header/Header";
 import { Navbar } from "@/features/Navbar/Navbar";
 import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
+import { Header } from "@/widgets/Header";
 
 import styles from "./App.module.css";
 
