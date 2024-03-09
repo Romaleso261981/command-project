@@ -8,11 +8,11 @@ import {
   Text,
   Tooltip,
   useMantineColorScheme,
-  useMantineTheme
-} from '@mantine/core';
-import { IconMessageCircle } from '@tabler/icons-react';
+  useMantineTheme,
+} from "@mantine/core";
+import { IconMessageCircle } from "@tabler/icons-react";
 
-import { MESSAGES } from './data';
+import { MESSAGES } from "./data";
 
 export const Messages = () => {
   const { colorScheme } = useMantineColorScheme();
@@ -22,24 +22,26 @@ export const Messages = () => {
       key={m.id}
       style={{
         borderBottom: `1px solid ${
-          colorScheme === 'dark' ? theme.colors.gray[7] : theme.colors.gray[3]
-        }`
-      }}>
-      <Flex gap="sm" align="center">
+          colorScheme === "dark" ? theme.colors.gray[7] : theme.colors.gray[3]
+        }`,
+      }}
+    >
+      <Flex gap='sm' align='center'>
         <Avatar
           src={null}
           alt={`${m.first_name} ${m.last_name}`}
-          variant="filled"
-          size="sm"
-          color={theme.colors[theme.primaryColor][7]}>
+          variant='filled'
+          size='sm'
+          color={theme.colors[theme.primaryColor][7]}
+        >
           {Array.from(m.first_name)[0]}
           {Array.from(m.last_name)[0]}
         </Avatar>
         <Stack gap={1}>
-          <Text fz="sm" fw={600}>
+          <Text fz='sm' fw={600}>
             {m.first_name} {m.last_name}
           </Text>
-          <Text lineClamp={2} fz="xs" c="dimmed">
+          <Text lineClamp={2} fz='xs' c='dimmed'>
             {m.message}
           </Text>
         </Stack>
@@ -47,22 +49,22 @@ export const Messages = () => {
     </Menu.Item>
   ));
   return (
-    <Menu shadow="lg" width={320}>
+    <Menu shadow='lg' width={320}>
       <Menu.Target>
         <Indicator processing size={10} offset={6}>
-          <Tooltip label="Messages">
-            <ActionIcon size="lg" radius={6} bg="transparent" title="Nessages">
-              <IconMessageCircle size={25} color={'black'} />
+          <Tooltip label='Messages'>
+            <ActionIcon size='lg' radius={6} bg='transparent' title='Nessages'>
+              <IconMessageCircle size={25} color={"black"} />
             </ActionIcon>
           </Tooltip>
         </Indicator>
       </Menu.Target>
       <Menu.Dropdown>
-        <Menu.Label tt="uppercase" ta="center" fw={600}>
+        <Menu.Label tt='uppercase' ta='center' fw={600}>
           {MESSAGES.length} new notifications
         </Menu.Label>
         {messages}
-        <Menu.Item tt="uppercase" ta="center" fw={600}>
+        <Menu.Item tt='uppercase' ta='center' fw={600}>
           Show all messages
         </Menu.Item>
       </Menu.Dropdown>

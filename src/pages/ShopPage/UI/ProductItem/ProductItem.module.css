@@ -1,0 +1,28 @@
+.cardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  padding: 10px 20px;
+  max-width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.image {
+  min-height: 60%;
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.description {
+  font-family: serif;
+  font-style: italic;
+}
+
+.price {
+  font-size: 35px;
+  color: rgb(243, 93, 66);
+  font-weight: normal;
+}
