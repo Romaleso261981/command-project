@@ -29,7 +29,7 @@ const Basket: FC = () => {
         <IoClose />
       </Box>
       {orderedProduct.map((item) => (
-        <Flex key={item.id}>
+        <Flex display='flex' gap={5} key={item.id}>
           <SingleCard data={item} />
         </Flex>
       ))}

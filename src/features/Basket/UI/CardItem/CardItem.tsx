@@ -11,7 +11,7 @@ type SingleCardProps = {
 
 export const SingleCard: FC<SingleCardProps> = ({ data }) => {
   return (
-    <Flex className={s.card}>
+    <Flex mb={5} className={s.card}>
       <Image src={data.imageURL} height={100} />
       <Flex mr={100}>
         <Text>{`Cost ${data.price} $.`}</Text>
