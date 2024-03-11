@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@firebase/storage": "^0.12.1",
-    "@mantine/code-highlight": "^7.5.1",
     "@mantine/core": "^7.6.1",
     "@mantine/dropzone": "^7.6.1",
     "@mantine/form": "^7.5.1",
