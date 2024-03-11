@@ -1,7 +1,16 @@
 import { Group } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
-import { ColorSwitch, HeaderTitle, SearchHeader, UserInfo } from "@/features";
+import {
+  ColorSwitch,
+  HeaderTitle,
+  LanguagePicker,
+  Messages,
+  Notification,
+  SearchHeader,
+  ToggleMenu,
+  UserInfo,
+} from "@/features";
 import { Basket } from "@/shared/ui/Drawer/Drawer";
 
 import classes from "./Header.module.css";
@@ -16,14 +25,16 @@ export function Header() {
         {!matches && <Basket />}
       </Group>
       {!matches ? (
-        <Group>{/* <ToggleMenu /> */}</Group>
+        <Group>
+          <ToggleMenu />
+        </Group>
       ) : (
         <Group gap='xs' justify='space-between'>
           <SearchHeader />
           {matches && <Basket />}
-          {/* <Messages /> */}
-          {/* <Notification /> */}
-          {/* <LanguagePicker type='collapsed' /> */}
+          <Messages />
+          <Notification />
+          <LanguagePicker type='collapsed' />
           <ColorSwitch />
           <UserInfo />
         </Group>

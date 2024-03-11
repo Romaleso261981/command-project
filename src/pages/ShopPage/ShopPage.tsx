@@ -4,10 +4,10 @@ import { useTranslation } from "react-i18next";
 
 import { NUMBER_CARDS } from "@/constants/constans";
 import { Role } from "@/enteties/session/User/model/slice";
-import { Header } from "@/features/Header/Header";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
 import { DataBasePath } from "@/shared/types/enums";
+import { Header } from "@/widgets/Header";
 
 import { getAllProducts } from "./model/shopPageslise";
 import CardAddProduct from "./UI/CardAddProduct/CardAddProduct";

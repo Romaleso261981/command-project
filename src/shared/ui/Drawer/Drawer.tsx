@@ -2,7 +2,7 @@ import { Drawer, Flex, Text, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
 
-import { IconBasket } from "@/features/Header/ui/IconBasket/IconBasket";
+import { IconBasket } from "@/features/IconBasket/IconBasket";
 import { incomeTotal } from "@/shared/helpers/basket/totalCost";
 import { useAppSelector } from "@/shared/lib/hooks/useAppSelector";
 
