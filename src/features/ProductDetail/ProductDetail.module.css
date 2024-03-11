@@ -22,12 +22,23 @@
 }
 
 .imageWrapper {
+  cursor: pointer;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
   display: flex;
   flex-direction: row;
   width: 60%;
+}
+
+.aspectRatio {
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  display: flex;
+  width: 60%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 @media (max-width: 56.25em) {
@@ -46,6 +57,10 @@
   .imageWrapper {
     padding: 0;
     flex-direction: row;
+  }
+
+  .aspectRatio {
+    min-width: 90%;
   }
 }
 

@@ -1,1 +1,1 @@
-export * from "./UI/ProductDetail";
+export * from "./UI/Product";

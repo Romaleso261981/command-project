@@ -7,7 +7,7 @@ import { Spiner } from "@/shared/ui/Loader/Loader";
 
 const MainPage = lazy(() => import("@/pages/MainPage/MainPage"));
 const MainShop = lazy(() => import("@/pages/ShopPage/ShopPage"));
-const ProductPage = lazy(() => import("@/pages/ProductPage/ProductPage"));
+const ProductDetailPage = lazy(() => import("@/pages/ProductDetailPage"));
 const UserPage = lazy(() => import("@/pages/UserPage/UserPage"));
 const AuthPage = lazy(() => import("@/pages/AuthPage"));
 const AdminPage = lazy(() => import("@/pages/AdminPage/AdminPage"));
@@ -20,7 +20,7 @@ export default function RootRouter() {
       <Routes>
         <Route path={RoutersPaths.LOGIN} element={<AuthPage />} />
         <Route path={RoutersPaths.PRODUCTS} element={<MainShop />} />
-        <Route path={RoutersPaths.PRODUCT} element={<ProductPage />} />
+        <Route path={RoutersPaths.PRODUCT} element={<ProductDetailPage />} />
         <Route element={<Layout />}>
           <Route path={RoutersPaths.MAIN} element={<MainPage />} />
           <Route path={RoutersPaths.ADMIN} element={<AdminPage />} />
