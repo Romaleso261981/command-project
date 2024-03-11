@@ -1,4 +1,4 @@
-import { Button, Card, CardSection, Flex, Title, useMantineTheme } from "@mantine/core";
+import { Button, Card, CardSection, Flex, Title } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -19,10 +19,6 @@ const ShopPage = () => {
   const isAdmin = Role.ADMIN === useAppSelector((state) => state.curentUserSlice.rule);
   const shopData = useAppSelector((state) => state.producsSlise.products);
   const lastRefKey = useAppSelector((state) => state.producsSlise.lastRefKey);
-
-  const theme = useMantineTheme();
-
-  console.log("theme", theme);
 
   const dispatch = useAppDispatch();
   const { t } = useTranslation();

@@ -17,4 +17,5 @@ export type Product = {
   price: number;
   isRecommended: boolean;
   dateAdded: number;
+  imageCollection: [{ url: string; id: string }];
 };

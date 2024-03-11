@@ -1,4 +1,4 @@
-import { AspectRatio, Button, Flex, Group, Image, Text, Title } from "@mantine/core";
+import { AspectRatio, Button, Center, Flex, Group, Image, rem, Text, Title } from "@mantine/core";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -17,6 +17,16 @@ const ProductDetail = () => {
   const product = useAppSelector((state) => state.producsSlise.product);
   const store = useAppSelector((state) => state.producsSlise.basket);
 
+  if (product === null) return <Title>Loading ......</Title>;
+
+  const images = product.imageCollection ?? [];
+
+  const items = images.map((item) => (
+    <AspectRatio key={item.id} ratio={1} style={{ flex: `0 0 ${rem(100)}`, width: `100px` }}>
+      <Image src={item.url} alt='Avatar' />
+    </AspectRatio>
+  ));
+
   let isExistInBascet = false;
   if (product && store) {
     isExistInBascet = isExistProductInBasket(product.id!, store);
@@ -27,7 +37,6 @@ const ProductDetail = () => {
   };
 
   const showPicture = () => {
-    console.log("showPicture", isShowPicture);
     setIsShowPicture(!isShowPicture);
   };
 
@@ -38,15 +47,21 @@ const ProductDetail = () => {
   return (
     <>
       {isShowPicture ? (
-        <AspectRatio
-          className={s.aspectRatio}
-          onClick={showPicture}
-          ratio={1080 / 720}
-          maw='60%'
-          mx='auto'
-        >
-          <Image src={product?.imageURL} />
-        </AspectRatio>
+        <Flex p={40} direction='row-reverse'>
+          <AspectRatio
+            className={s.aspectRatio}
+            onClick={showPicture}
+            ratio={1080 / 720}
+            maw='60%'
+            mx='auto'
+          >
+            <Image src={product?.imageURL} />
+          </AspectRatio>
+
+          <Flex mt={20} direction='column' gap={20}>
+            {items}
+          </Flex>
+        </Flex>
       ) : (
         <Flex className={s.cardWrapper}>
           <Flex className={s.descriptionWrapper}>
@@ -75,9 +90,9 @@ const ProductDetail = () => {
               </Group>
             </Flex>
           </Flex>
-          <Flex onClick={showPicture} className={s.imageWrapper}>
+          <Center onClick={showPicture} className={s.imageWrapper}>
             <Image src={product?.imageURL} />
-          </Flex>
+          </Center>
         </Flex>
       )}
     </>
