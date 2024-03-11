@@ -11,7 +11,7 @@ type SingleCardProps = {
 };
 
 export const SingleCard: FC<SingleCardProps> = ({ data }) => {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const total = quantity * data.price;
 
