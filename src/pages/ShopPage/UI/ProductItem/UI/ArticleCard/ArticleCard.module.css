@@ -1,0 +1,36 @@
+.card {
+  position: relative;
+  background-color: var(--mantine-color-body);
+  width: 500px;
+}
+
+@media (max-width: 56.25em) {
+  .card {
+    width: 300px;
+  }
+}
+
+.rating {
+  position: absolute;
+  top: var(--mantine-spacing-xs);
+  right: rem(12px);
+  pointer-events: none;
+}
+
+.title {
+  display: block;
+  margin-top: var(--mantine-spacing-sm);
+  margin-bottom: rem(5px);
+}
+
+.action {
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-5));
+}
+
+.action:hover {
+  background-color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-6));
+}
+
+.footer {
+  margin-top: var(--mantine-spacing-md);
+}

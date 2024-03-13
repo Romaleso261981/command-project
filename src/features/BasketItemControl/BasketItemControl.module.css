@@ -1,0 +1,16 @@
+.basketItemControl {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.basketControlAdd {
+}
+
+.basketControlMinus {
+}
+
+.button {
+}

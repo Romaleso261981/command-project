@@ -1,0 +1,15 @@
+.listWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 1.25rem;
+  padding: 1.25rem;
+}
+
+@media (max-width: 56.25em) {
+  .listWrapper {
+    gap: 0.625rem;
+    width: 350px;
+  }
+}
